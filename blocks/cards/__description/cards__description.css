@@ -1,0 +1,9 @@
+.cards__description {
+  position: relative;
+  margin: 0;
+  background-color: #FFFFFF;
+  height: 54px;
+  padding-top: 25px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
