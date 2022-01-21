@@ -4,52 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
-    <link rel="stylesheet" href="/pages/index.css">
+    <link rel="stylesheet" href="../mesto/pages/index.css">
 </head>
 <body class="page">
     <header class="header">
-      <img class="header__logo" src="" alt="логотип сайта">
+      <img class="header__logo" src="../mesto/images/logo.svg" alt="логотип сайта">
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="" alt="аватарка пользователя">
+        <div class="profile__avatar">
+          <img class="profile__picture" src="../mesto/images/avatar.png" alt="аватарка пользователя">
+        </div>
         <div class="profile__info">
-          <h1 class="profile__name"></h1>
-          <p class="profile__self-description"></p>
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <p class="profile__self-description">Исследователь океана</p>
           <button class="profile__button-change"></button>
         </div>
-        <button class="profile__button-addphoto"></button>
       </section>
       <section class="images">
+        <button class="images__button-addphoto"></button>
         <ul class="cards">
           <li class="cards__item">
-            <img class="cards__picture" src="" alt="">
-            <h2 class="cards__title"></h2>
+            <img class="cards__picture" src="../mesto/images/tbilisi.jpg" alt="вид на город Тбилиси">
+            <h2 class="cards__title">Тбилиси</h2>
             <button class="cards__like"></button>
           </li>
-          <li class="image__item">
-            <img class="cards__picture" src="" alt="">
-            <h2 class="cards__title"></h2>
+          <li class="cards__item">
+            <img class="cards__picture" src="../mesto/images/teatr marionetok.jpg" alt="здание театра выполнено в виде часовой башни">
+            <h2 class="cards__title">Тбилисский театр марионеток</h2>
             <button class="cards__like"></button>
           </li>
-          <li class="image__item">
-            <img class="cards__picture" src="" alt="">
-            <h2 class="cards__title"></h2>
+          <li class="cards__item">
+            <img class="cards__picture" src="../mesto/images/zhinvalskoe vodokhranilische.jpg" alt="вид на холмы и водохранилище">
+            <h2 class="cards__title">Жинвальское водохранилище</h2>
             <button class="cards__like"></button>
           </li>
-          <li class="image__item">
-            <img class="cards__picture" src="" alt="">
-            <h2 class="cards__title"></h2>
+          <li class="cards__item">
+            <img class="cards__picture" src="../mesto/images/monastir dzhvari.jpg" alt="вид на город Мцхета и слияние рек Арагви и Кури">
+            <h2 class="cards__title">Монастырь Джвари</h2>
             <button class="cards__like"></button>
           </li>
-          <li class="image__item">
-            <img class="cards__picture" src="" alt="">
-            <h2 class="cards__title"></h2>
+          <li class="cards__item">
+            <img class="cards__picture" src="../mesto/images/arka druzhbi narodov.jpg" alt="вид на арку дружбы народов и летающий параплан среди гор">
+            <h2 class="cards__title">Арка дружбы народов</h2>
             <button class="cards__like"></button>
           </li>
-          <li class="image__item">
-            <img class="cards__picture" src="" alt="">
-            <h2 class="cards__title"></h2>
+          <li class="cards__item">
+            <img class="cards__picture" src="../mesto/images/monastir svytoy troitci.jpg" alt="вмд на гору Казбек в ясную погоду">
+            <h2 class="cards__title">гора Казбек</h2>
             <button class="cards__like"></button>
           </li>
         </ul>
@@ -65,6 +67,6 @@
         <button class="popup__button"></button>
       </form>
     </section>
-    <script src="/js/script.js"></script>
+    <script src="../mesto/js/script.js"></script>
 </body>
 </html>
