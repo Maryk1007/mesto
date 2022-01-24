@@ -39,8 +39,7 @@ function formSubmit(evt) {
 
   profileName.textContent = nameInput.value;
   profileSelfDescription.textContent = jobInput.value;
-
-  popupButtonSave.addEventListener('click', closePopup);
 };
 
 formPopup.addEventListener('submit', formSubmit);
+popupButtonSave.addEventListener('click', closePopup);
