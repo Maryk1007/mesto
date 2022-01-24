@@ -1,8 +1,8 @@
 .profile {
   margin: 0 auto;
   width: 282px;
-  padding-top: 42px;
-  margin-bottom: 36px;
+  padding-top: 38px;
+  margin-bottom: 33px;
 }
 
 @media (min-width: 768px) {
@@ -16,6 +16,8 @@
 @media (min-width: 1280px) {
   .profile {
     width: 880px;
-    grid-template-columns: 168px 1fr 150px;
+    grid-template-columns: 150px 1fr 150px;
+    padding-top: 50px;
+    margin-bottom: 51px;
   }
 }

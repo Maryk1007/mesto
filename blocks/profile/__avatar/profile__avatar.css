@@ -2,9 +2,16 @@
   display: flex;
   margin: 0 auto;
   margin-bottom: 22px;
-  width: 168px;
+  width: 150px;
   height: 127px;
   background-color: #000000;
   justify-content: center;
   align-items: center;
+}
+
+@media (min-width: 1280px) {
+  .profile__avatar {
+  justify-content: start;
+  margin-bottom: 0;
+  }
 }
