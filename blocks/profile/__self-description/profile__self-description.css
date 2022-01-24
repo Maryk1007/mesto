@@ -8,3 +8,16 @@
   margin-bottom: 36px;
   text-align: center;
 }
+
+@media (min-width: 768px) {
+  .profile__self-description {
+    margin: 0;
+    text-align: start;
+  }
+}
+
+@media (min-width: 1280px) {
+  .profile__self-description {
+    font-size: 18px;
+  }
+}

@@ -1,9 +1,12 @@
 .cards__item {
   margin: 0 auto;
   width: 282px;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
-.cards__item:last-child {
-  margin-bottom: 0;
+@media (min-width: 768px) {
+  .cards__item {
+    margin: 0;
+
+  }
 }

@@ -1,7 +1,34 @@
 .profile__button-change {
+  margin: 0;
+  padding: 0;
   width: 18px;
   height: 18px;
   position: absolute;
-  top: 11px;
-  right: 20px;
+  top: 7px;
+  right: 18.5px;
+  background-color: #000000;
+  background-image: url(../../../images/button-change.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid #FFFFFF;
+  cursor: pointer;
+}
+
+.profile__button-change:hover {
+  opacity: .6;
+}
+
+@media (min-width: 768px) {
+  .profile__button-change {
+    right: 65px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .profile__button-change {
+    width: 24px;
+    height: 24px;
+    top: 15px;
+    right: 226px;
+  }
 }

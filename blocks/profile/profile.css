@@ -1,5 +1,21 @@
 .profile {
   margin: 0 auto;
   width: 282px;
-  padding-top: 38px;
+  padding-top: 42px;
+  margin-bottom: 36px;
+}
+
+@media (min-width: 768px) {
+  .profile {
+    width: 581px;
+    display: grid;
+    grid-template-columns: 168px 1fr 131px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .profile {
+    width: 880px;
+    grid-template-columns: 168px 1fr 150px;
+  }
 }
