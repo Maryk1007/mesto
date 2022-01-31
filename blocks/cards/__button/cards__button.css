@@ -8,7 +8,7 @@
   height: 19px;
   border: none;
   background-color: #FFFFFF;
-  background-image: url(../../../images/button-like.svg);
+  background-image: url(/images/button-like.svg);
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
