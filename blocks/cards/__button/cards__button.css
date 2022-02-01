@@ -1,14 +1,14 @@
 .cards__button {
   margin: 0;
   padding: 0;
-  position: absolute;
+  align-self: center;
   top: 29px;
   right: 20px;
   width: 22px;
   height: 19px;
   border: none;
   background-color: #FFFFFF;
-  background-image: url(/images/button-like.svg);
+  background-image: url(../../../images/button-like.svg);
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;

@@ -1,17 +1,19 @@
 .profile__self-description {
-  margin: 0 auto;
-  width: 282px;
+  margin: 0;
   font-family: "Inter", "Arial", sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.21;
   margin-bottom: 28px;
   text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .profile__self-description {
-    margin: 0;
+    margin-bottom: 0;
     text-align: start;
   }
 }
