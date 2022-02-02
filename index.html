@@ -17,53 +17,53 @@
         </div>
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button type="button" class="profile__button-change"></button>
+          <button type="button" class="profile__button-change" aria-label="openForm"></button>
           <p class="profile__self-description">Исследователь океана</p>
         </div>
-        <button type="button" class="profile__button-addphoto"></button>
+        <button type="button" class="profile__button-addphoto" aria-label="addPhoto"></button>
       </section>
       <section class="images">
-        <ul class="cards">
-          <li class="cards__item">
+        <ul class="images__list">
+          <li class="cards">
             <img class="cards__picture" src="images/tbilisi.jpg" alt="вид на город Тбилиси">
             <div class="cards__description">
               <h2 class="cards__title">Тбилиси</h2>
-              <button type="button" class="cards__button"></button>
+              <button type="button" class="cards__button" aria-label="reaction"></button>
             </div>
           </li>
-          <li class="cards__item">
+          <li class="cards">
             <img class="cards__picture" src="images/teatr-marionetok.jpg" alt="здание театра выполнено в виде часовой башни">
             <div class="cards__description">
               <h2 class="cards__title">Тбилисский театр марионеток</h2>
-              <button type="button" class="cards__button"></button>
+              <button type="button" class="cards__button" aria-label="reaction"></button>
             </div>
           </li>
-          <li class="cards__item">
+          <li class="cards">
             <img class="cards__picture" src="images/zhinvalskoe-vodokhranilische.jpg" alt="вид на холмы и водохранилище">
             <div class="cards__description">
               <h2 class="cards__title">Жинвальское водохранилище</h2>
-              <button type="button" class="cards__button"></button>
+              <button type="button" class="cards__button" aria-label="reaction"></button>
             </div>
           </li>
-          <li class="cards__item">
+          <li class="cards">
             <img class="cards__picture" src="images/monastir-dzhvari.jpg" alt="вид на город Мцхета и слияние рек Арагви и Кури">
             <div class="cards__description">
               <h2 class="cards__title">Монастырь Джвари</h2>
-              <button type="button" class="cards__button"></button>
+              <button type="button" class="cards__button" aria-label="reaction"></button>
             </div>
           </li>
-          <li class="cards__item">
+          <li class="cards">
             <img class="cards__picture" src="images/arka-druzhbi-narodov.jpg" alt="вид на арку дружбы народов и летающий параплан среди гор">
             <div class="cards__description">
               <h2 class="cards__title">Арка дружбы народов</h2>
-              <button type="button" class="cards__button"></button>
+              <button type="button" class="cards__button" aria-label="reaction"></button>
             </div>
           </li>
-          <li class="cards__item">
+          <li class="cards">
             <img class="cards__picture" src="images/monastir-svytoy-troitci.jpg" alt="вид на гору Казбек в ясную погоду">
             <div class="cards__description">
               <h2 class="cards__title">Гора Казбек</h2>
-              <button type="button" class="cards__button"></button>
+              <button type="button" class="cards__button" aria-label="reaction"></button>
             </div>
           </li>
         </ul>
@@ -72,15 +72,15 @@
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
-    <section class="popup">
-      <form action="#" class="popup__container">
-        <button type="button" class="popup__button-close"></button>
-        <p class="popup__text">Редактировать профиль</p>
-        <input type="text" class="popup__name" value="Жак-Ив Кусто">
-        <input type="text" class="popup__description" value="Исследователь океана">
-        <button type="submit" class="popup__button-save">Сохранить</button>
+    <div class="popup">
+      <form action="#" name="formChangeInto" class="popup__container">
+        <button type="button" class="popup__button-close" aria-label="closeForm"></button>
+        <h2 class="popup__text">Редактировать профиль</h2>
+        <input type="text" name="userName" required placeholder="Напишите ваше имя" class="popup__info popup__info_name">
+        <input type="text" name="userJob" required placeholder="Напишите чем вы занимаетесь" class="popup__info popup__info_description">
+        <button type="submit" class="popup__button-save" aria-labelledby="saveInfo">Сохранить</button>
       </form>
-    </section>
+    </div>
     <script src="js/index.js"></script>
 </body>
 </html>

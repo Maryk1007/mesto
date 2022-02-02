@@ -1,10 +1,8 @@
-.popup__description {
+.popup__info {
   margin: 0;
-  margin-bottom: 48px;
   padding: 0;
   padding-bottom: 12px;
   border: none;
-  outline: none;
   font-family: "Inter", "Arial", sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -13,8 +11,10 @@
   border-bottom: 1px solid rgba(0, 0, 0, .2);
 }
 
+
 @media (min-width: 1280px) {
-  .popup__description {
+  .popup__info {
     width: 358px;
   }
 }
+
