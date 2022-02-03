@@ -1,6 +1,7 @@
 .popup__info {
   margin: 0;
   padding: 0;
+  margin-bottom: 30px;
   padding-bottom: 12px;
   border: none;
   font-family: "Inter", "Arial", sans-serif;
@@ -11,11 +12,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, .2);
 }
 
-.popup__info:nth-of-type(1) {
-  margin-bottom: 30px;
-}
-
-.popup__info:nth-of-type(2) {
+.popup__info:last-of-type {
   margin-bottom: 48px;
 }
 
