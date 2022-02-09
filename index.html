@@ -24,48 +24,6 @@
       </section>
       <section class="images">
         <ul class="images__list">
-          <li class="cards">
-            <img class="cards__picture" src="images/tbilisi.jpg" alt="вид на город Тбилиси">
-            <div class="cards__description">
-              <h2 class="cards__title">Тбилиси</h2>
-              <button type="button" class="cards__button" aria-label="кнопка like"></button>
-            </div>
-          </li>
-          <li class="cards">
-            <img class="cards__picture" src="images/teatr-marionetok.jpg" alt="здание театра выполнено в виде часовой башни">
-            <div class="cards__description">
-              <h2 class="cards__title">Тбилисский театр марионеток</h2>
-              <button type="button" class="cards__button" aria-label="кнопка like"></button>
-            </div>
-          </li>
-          <li class="cards">
-            <img class="cards__picture" src="images/zhinvalskoe-vodokhranilische.jpg" alt="вид на холмы и водохранилище">
-            <div class="cards__description">
-              <h2 class="cards__title">Жинвальское водохранилище</h2>
-              <button type="button" class="cards__button" aria-label="кнопка like"></button>
-            </div>
-          </li>
-          <li class="cards">
-            <img class="cards__picture" src="images/monastir-dzhvari.jpg" alt="вид на город Мцхета и слияние рек Арагви и Кури">
-            <div class="cards__description">
-              <h2 class="cards__title">Монастырь Джвари</h2>
-              <button type="button" class="cards__button" aria-label="кнопка like"></button>
-            </div>
-          </li>
-          <li class="cards">
-            <img class="cards__picture" src="images/arka-druzhbi-narodov.jpg" alt="вид на арку дружбы народов и летающий параплан среди гор">
-            <div class="cards__description">
-              <h2 class="cards__title">Арка дружбы народов</h2>
-              <button type="button" class="cards__button" aria-label="кнопка like"></button>
-            </div>
-          </li>
-          <li class="cards">
-            <img class="cards__picture" src="images/monastir-svytoy-troitci.jpg" alt="вид на гору Казбек в ясную погоду">
-            <div class="cards__description">
-              <h2 class="cards__title">Гора Казбек</h2>
-              <button type="button" class="cards__button" aria-label="кнопка like"></button>
-            </div>
-          </li>
         </ul>
       </section>
     </main>
@@ -83,6 +41,15 @@
         </form>
       </div>
     </div>
+    <template class="item__template">
+      <li class="cards">
+        <img class="cards__picture" src="images/tbilisi.jpg">
+        <div class="cards__description">
+          <h2 class="cards__title">Тбилиси</h2>
+          <button type="button" class="cards__button" aria-label="кнопка like"></button>
+        </div>
+      </li>
+    </template>
     <script src="js/index.js"></script>
 </body>
 </html>
