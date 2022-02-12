@@ -108,7 +108,43 @@ function renderItem(item) {
   newItem.querySelector('.cards__picture').src = item.link;
   newItem.querySelector('.cards__picture').alt = item.name;
 
+  addLiseners(newItem);
+
   list.prepend(newItem);
+}
+
+//функции удаления и like//
+function addLiseners(el) {
+  el.querySelector('.cards__delete-button').addEventListener('click', deleteCard);
+  el.querySelector('.cards__button').addEventListener('click', likeCard);
+  el.querySelector('.cards__picture').addEventListener('click', fullviewCardOpen);
+  fullviewClose.addEventListener('click', fullviewCardClose);
+}
+
+function deleteCard(evt) {
+  evt.target.closest('.cards').remove();
+}
+
+function likeCard(evt) {
+  evt.target.closest('.cards__button').classList.toggle('cards__button_like');
+}
+
+//  функция fullviewImage//
+const fullviewClose = document.querySelector('.fullview__button-close');
+const fullviewPopup = document.querySelector('.fullview');
+const picture = document.querySelectorAll('.cards');
+const fullviewPicture = document.querySelector('.fullview__picture');
+const captionPicrute = document.querySelector('.fullview__caption');
+
+function fullviewCardOpen(evt) {
+  fullviewPopup.classList.add('fullview_opened');
+  fullviewPicture.src = evt.target.src;
+  fullviewPicture.alt = evt.target.alt;
+  captionPicrute.textContent = evt.target.alt;
+}
+
+function fullviewCardClose() {
+  fullviewPopup.classList.remove('fullview_opened');
 }
 
 //функция добавления новой карточки//
@@ -134,12 +170,3 @@ formAddPhoto.addEventListener( 'submit', (evt) => {
 
 render();
 
-//функция like//
-const cardsButton = document.querySelectorAll('.cards__button');
-const cardsButtonLike = document.querySelector('.cards__button_like');
-
-for (let i = 0; i < cardsButton.length; ++i ) {
-  cardsButton[i].addEventListener('click', function(evt) {
-    this.classList.toggle('cards__button_like');
-  });
-};

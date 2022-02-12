@@ -37,5 +37,5 @@
 @import url(../blocks/fullview/__picture/fullview__picture.css);
 @import url(../blocks/fullview/__caption/fullview__caption.css);
 @import url(../blocks/fullview/__button-close/fullview__button-close.css);
-@import url(../blocks/fullview/_opened/fullview__opened.css);
+@import url(../blocks/fullview/_opened/fullview_opened.css);
 
