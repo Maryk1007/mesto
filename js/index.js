@@ -19,11 +19,11 @@ const photoInputLink = document.querySelector('.popupPhoto__info_field_link');
 const formPopupPhoto = document.querySelector('.popupPhoto__form');
 
 //  переменные для PopupFullview//
-const fullviewClose = document.querySelector('.fullview__button-close');
-const fullviewPopup = document.querySelector('.fullview');
+const buttonClosePopupFullview = document.querySelector('.popupFullview__button-close');
+const popupFullview = document.querySelector('.popupFullview');
 const picture = document.querySelectorAll('.cards');
-const fullviewPicture = document.querySelector('.fullview__picture');
-const captionPicrute = document.querySelector('.fullview__caption');
+const fullviewPicture = document.querySelector('.popupFullview__picture');
+const captionPicture = document.querySelector('.popupFullview__caption');
 
 //функции открытия и закрытия попапа//
 function openPopup() {
@@ -130,17 +130,17 @@ function likeCard(evt) {
 }
 
 function fullviewCardOpen(evt) {
-  fullviewPopup.classList.add('fullview_opened');
+  popupFullview.classList.add('popupFullview_opened');
   fullviewPicture.src = evt.target.src;
   fullviewPicture.alt = evt.target.alt;
-  captionPicrute.textContent = evt.target.alt;
+  captionPicture.textContent = evt.target.alt;
 }
 
 function fullviewCardClose() {
-  fullviewPopup.classList.remove('fullview_opened');
+  popupFullview.classList.remove('popupFullview_opened');
 }
 
-fullviewClose.addEventListener('click', fullviewCardClose);
+buttonClosePopupFullview.addEventListener('click', fullviewCardClose);
 
 
 //функция добавления новой карточки//

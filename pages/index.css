@@ -38,11 +38,11 @@
 @import url(../blocks/popupPhoto/__button-close/popupPhoto__button-close.css);
 @import url(../blocks/popupPhoto/__button-save/popupPhoto__button-save.css);
 @import url(../blocks/popupPhoto/_opened/popupPhoto_opened.css);
-@import url(../blocks/fullview/fullview.css);
-@import url(../blocks/fullview/__form/fullview__form.css);
-@import url(../blocks/fullview/__image/fullview__image.css);
-@import url(../blocks/fullview/__picture/fullview__picture.css);
-@import url(../blocks/fullview/__caption/fullview__caption.css);
-@import url(../blocks/fullview/__button-close/fullview__button-close.css);
-@import url(../blocks/fullview/_opened/fullview_opened.css);
+@import url(../blocks/popupFullview/popupFullview.css);
+@import url(../blocks/popupFullview/__form/popupFullview__form.css);
+@import url(../blocks/popupFullview/__image/popupFullview__image.css);
+@import url(../blocks/popupFullview/__picture/popupFullview__picture.css);
+@import url(../blocks/popupFullview/__caption/popupFullview__caption.css);
+@import url(../blocks/popupFullview/__button-close/popupFullview__button-close.css);
+@import url(../blocks/popupFullview/_opened/popupFullview_opened.css);
 
