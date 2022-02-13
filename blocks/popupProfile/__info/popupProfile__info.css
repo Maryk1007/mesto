@@ -1,4 +1,4 @@
-.popup__info {
+.popupProfile__info {
   margin: 0;
   padding: 0;
   margin-bottom: 30px;
@@ -12,13 +12,13 @@
   border-bottom: 1px solid rgba(0, 0, 0, .2);
 }
 
-.popup__info:last-of-type {
+.popupProfile__info:last-of-type {
   margin-bottom: 48px;
 }
 
 
 @media (min-width: 1280px) {
-  .popup__info {
+  .popupProfile__info {
     width: 358px;
   }
 }

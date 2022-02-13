@@ -1,4 +1,4 @@
-.popup__button-close {
+.popupProfile__button-close {
   position: absolute;
   right: 0;
   top: -36px;
@@ -15,12 +15,12 @@
   transition: opacity .3s ease-in;
 }
 
-.popup__button-close:hover {
+.popupProfile__button-close:hover {
   opacity: .6;
 }
 
 @media (min-width: 1280px) {
-  .popup__button-close {
+  .popupProfile__button-close {
     background-image: url(../../../images/button-close2.svg);
     width: 32px;
     height: 32px;

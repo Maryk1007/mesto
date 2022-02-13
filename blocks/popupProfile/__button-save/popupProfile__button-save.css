@@ -1,4 +1,4 @@
-.popup__button-save {
+.popupProfile__button-save {
   margin: 0 auto;
   display: block;
   border: none;
@@ -15,12 +15,12 @@
   transition: opacity .3s ease-in;
 }
 
-.popup__button-save:hover {
+.popupProfile__button-save:hover {
   opacity: .8;
 }
 
 @media (min-width: 1280px) {
-  .popup__button-save {
+  .popupProfile__button-save {
     width: 358px;
     font-size: 18px;
   }

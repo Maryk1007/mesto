@@ -1,4 +1,4 @@
-.popup__container {
+.popupProfile__container {
   position: relative;
   margin: 0 auto;
   align-self: center;
@@ -9,7 +9,7 @@
 }
 
 @media (min-width: 1280px) {
-  .popup__container {
+  .popupProfile__container {
     padding: 34px 36px 37px;
     width: 358px;
   }

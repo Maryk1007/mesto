@@ -1,13 +1,13 @@
 //переменные для PopupProfile//
 const buttonChange = document.querySelector('.profile__button-change');
-const popup = document.querySelector('.popup')
-const buttonClose = document.querySelector('.popup__button-close');
-const formPopup = document.querySelector('.popup__form');
-const nameInput = document.querySelector('.popup__info_field_name');
-const jobInput = document.querySelector('.popup__info_field_description');
+const popupProfile = document.querySelector('.popupProfile')
+const buttonClosePopupProfile = document.querySelector('.popupProfile__button-close');
+const formPopupProfile = document.querySelector('.popupProfile__form');
+const nameInputProfile = document.querySelector('.popupProfile__info_field_name');
+const jobInputProfile = document.querySelector('.popupProfile__info_field_description');
 const profileName = document.querySelector('.profile__name');
 const profileSelfDescription = document.querySelector('.profile__self-description');
-const popupButtonSave = document.querySelector('.popup__button-save');
+const buttonSavepopupProfile = document.querySelector('.popupProfile__button-save');
 
 // переменные для popupPhoto//
 const buttonAddPhoto = document.querySelector('.profile__button-addphoto');
@@ -27,32 +27,32 @@ const captionPicrute = document.querySelector('.fullview__caption');
 
 //функции открытия и закрытия попапа//
 function openPopup() {
-  popup.classList.add('popup_opened');
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileSelfDescription.textContent;
+  popupProfile.classList.add('popupProfile_opened');
+  nameInputProfile.value = profileName.textContent;
+  jobInputProfile.value = profileSelfDescription.textContent;
 };
 
 buttonChange.addEventListener('click', openPopup);
 
 
 function closePopup() {
-  popup.classList.remove('popup_opened')
+  popupProfile.classList.remove('popupProfile_opened')
 };
 
-buttonClose.addEventListener('click', closePopup);
+buttonClosePopupProfile.addEventListener('click', closePopup);
 
 //функция редактирования попапа//
 function formSubmit(evt) {
 
   evt.preventDefault();
 
-  profileName.textContent = nameInput.value;
-  profileSelfDescription.textContent = jobInput.value;
+  profileName.textContent = nameInputProfile.value;
+  profileSelfDescription.textContent = jobInputProfile.value;
 
   closePopup();
 };
 
-formPopup.addEventListener('submit', formSubmit);
+formPopupProfile.addEventListener('submit', formSubmit);
 
 
 //функции открытия и закрытия попапа с фото//
