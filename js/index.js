@@ -26,20 +26,24 @@ const fullviewPicture = document.querySelector('.popupFullview__picture');
 const captionPicture = document.querySelector('.popupFullview__caption');
 
 //функции открытия и закрытия попапа//
-function openPopup() {
-  popupProfile.classList.add('popupProfile_opened');
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+};
+
+buttonChange.addEventListener('click', () => {
   nameInputProfile.value = profileName.textContent;
   jobInputProfile.value = profileSelfDescription.textContent;
+  openPopup(popupProfile);
+});
+
+
+function closePopup(popup) {
+  popup.classList.remove('popup_opened')
 };
 
-buttonChange.addEventListener('click', openPopup);
-
-
-function closePopup() {
-  popupProfile.classList.remove('popupProfile_opened')
-};
-
-buttonClosePopupProfile.addEventListener('click', closePopup);
+buttonClosePopupProfile.addEventListener('click', () => {
+  closePopup(popupProfile);
+});
 
 //функция редактирования попапа//
 function formSubmit(evt) {
@@ -57,14 +61,12 @@ formPopupProfile.addEventListener('submit', formSubmit);
 
 //функции открытия и закрытия попапа с фото//
 buttonAddPhoto.addEventListener('click', () => {
-  popupPhoto.classList.add('popupPhoto_opened');
+  openPopup(popupPhoto);
 });
 
-function closeAddPhoto() {
-  popupPhoto.classList.remove('popupPhoto_opened');
-}
-
-buttonClosePopupPhoto.addEventListener( 'click', closeAddPhoto );
+buttonClosePopupPhoto.addEventListener( 'click', () => {
+  closePopup(popupPhoto);
+});
 
 
 //массив с карточками//
