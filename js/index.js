@@ -14,7 +14,7 @@ const buttonAddPhoto = document.querySelector('.profile__button-addphoto');
 const popupPhoto = document.querySelector('.photo_popup')
 const buttonClosePopupPhoto = popupPhoto.querySelector('.button-close');
 const buttonCreate = popupPhoto.querySelector('.button-save');
-const photoInputName = popupPhoto.querySelector('.input_field_name');
+const photoInputName = popupPhoto.querySelector('.input_field_title');
 const photoInputLink = popupPhoto.querySelector('.input_field_link');
 const formPopupPhoto = popupPhoto.querySelector('.popup__form');
 
@@ -107,14 +107,14 @@ function render() {
 }
 //функция добавления элемента массива в карточку//
 function renderItem(item) {
-  const newItem = template.cloneNode(true);
-  newItem.querySelector('.cards__title').textContent = item.name;
-  newItem.querySelector('.cards__picture').src = item.link;
-  newItem.querySelector('.cards__picture').alt = item.name;
+  const cardElement = template.cloneNode(true);
+  cardElement.querySelector('.cards__title').textContent = item.name;
+  cardElement.querySelector('.cards__picture').src = item.link;
+  cardElement.querySelector('.cards__picture').alt = item.name;
 
-  addLiseners(newItem);
+  addLiseners(cardElement);
 
-  list.prepend(newItem);
+  list.prepend(cardElement);
 }
 
 //функции удаления и like//
@@ -133,25 +133,12 @@ function likeCard(evt) {
 }
 
 function fullviewCardOpen(evt) {
-  popupFullview.classList.add('popup_opened');
   fullviewPicture.src = evt.target.src;
   fullviewPicture.alt = evt.target.alt;
   captionPicture.textContent = evt.target.alt;
+
+  openPopup(popupFullview);
 }
-
-// function fullviewCard(evt) {
-//   fullviewPicture.src = evt.target.src;
-//   fullviewPicture.alt = evt.target.alt;
-//   captionPicture.textContent = evt.target.alt;
-// };
-
-// picture.addEventListener('click', () => {
-//   openPopup(popupFullview);
-// });
-
-// function fullviewCardClose() {
-//   popupFullview.classList.remove('popupFullview_opened');
-// }
 
 buttonClosePopupFullview.addEventListener('click', () => {
   closePopup(popupFullview);
@@ -160,11 +147,14 @@ buttonClosePopupFullview.addEventListener('click', () => {
 
 //функция добавления новой карточки//
 function createNewCard() {
-  renderItem({
+    renderItem({
     'name': photoInputName.value,
     'link': photoInputLink.value
   });
 };
+
+
+
 //функция очищения попапа после закрытия//
 function clearInput() {
   photoInputLink.value = '';
@@ -175,7 +165,7 @@ formPopupPhoto.addEventListener( 'submit', (evt) => {
   evt.preventDefault();
 
   createNewCard();
-  closeAddPhoto();
+  closePopup(popupPhoto);
   clearInput();
 });
 
