@@ -147,10 +147,10 @@ buttonClosePopupFullview.addEventListener('click', () => {
 
 //функция добавления новой карточки//
 function createNewCard() {
-    renderItem({
+    const newItem = renderItem({
     'name': photoInputName.value,
     'link': photoInputLink.value
-  });
+  }); return newItem;
 };
 
 
