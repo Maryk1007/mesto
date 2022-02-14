@@ -1,4 +1,4 @@
-.popupFullview {
+.popup {
   display: flex;
   visibility: hidden;
   opacity: 0;

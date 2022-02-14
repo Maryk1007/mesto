@@ -30,35 +30,35 @@
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
-    <div class="popupProfile">
-      <div class="popupProfile__container">
-        <button type="button" class="popupProfile__button-close" aria-label="кнопка закрытия формы"></button>
-        <form name="formPopup" class="popupProfile__form">
-          <h2 class="popupProfile__text">Редактировать профиль</h2>
-          <input type="text" name="userName" required placeholder="Напишите ваше имя" class="popupProfile__info popupProfile__info_field_name">
-          <input type="text" name="userJob" required placeholder="Напишите чем вы занимаетесь" class="popupProfile__info popupProfile__info_field_description">
-          <button type="submit" class="popupProfile__button-save">Сохранить</button>
+    <div class="popup profile_popup">
+      <div class="popup__container">
+        <button type="button" class="button-close" aria-label="кнопка закрытия формы"></button>
+        <form name="formPopupProfile" class="popup__form">
+          <h2 class="popup__text">Редактировать профиль</h2>
+          <input type="text" name="userName" required placeholder="Напишите ваше имя" class="input input_field_name">
+          <input type="text" name="userJob" required placeholder="Напишите чем вы занимаетесь" class="input input_field_description">
+          <button type="submit" class="button-save">Сохранить</button>
         </form>
       </div>
     </div>
-    <div class="popupPhoto">
-      <div class="popupPhoto__container">
-        <button type="button" class="popupPhoto__button-close" aria-label="кнопка закрытия формы"></button>
-        <form name="formPopupPhoto" class="popupPhoto__form">
-          <h2 class="popupPhoto__text">Новое место</h2>
-          <input type="text" name="photoName" required placeholder="Название" class="popupPhoto__info popupPhoto__info_field_name">
-          <input type="text" name="photoLink" required placeholder="Ссылка на картинку" class="popupPhoto__info popupPhoto__info_field_link">
-          <button type="submit" class="popupPhoto__button-save">Создать</button>
+    <div class="popup photo_popup">
+      <div class="popup__container">
+        <button type="button" class="button-close" aria-label="кнопка закрытия формы"></button>
+        <form name="formPopupPhoto" class="popup__form">
+          <h2 class="popup__text">Новое место</h2>
+          <input type="text" name="photoName" required placeholder="Название" class="input input_field_title">
+          <input type="text" name="photoLink" required placeholder="Ссылка на картинку" class="input input_field_link">
+          <button type="submit" class="button-save">Создать</button>
         </form>
       </div>
     </div>
-    <div class="popupFullview">
-      <div class="popupFullview__form">
+    <div class="popup fullview_popup">
+      <div class="popupFullview popupFullview__container">
         <figure class="popupFullview__image">
           <img class="popupFullview__picture" src="images/tbilisi.jpg" alt="Тбилиси">
           <figcaption class="popupFullview__caption"></figcaption>
         </figure>
-        <button class="popupFullview__button-close"></button>
+        <button type="button" class="button-close" aria-label="кнопка закрытия формы"></button>
       </div>
     </div>
     <template class="item__template">
