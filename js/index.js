@@ -55,6 +55,10 @@ buttonClosePopupPhoto.addEventListener( 'click', () => {
   closePopup(popupPhoto);
 });
 
+buttonClosePopupFullview.addEventListener('click', () => {
+  closePopup(popupFullview);
+});
+
 
 //функция редактирования попапа//
 function formSubmit(evt) {
@@ -117,7 +121,8 @@ function renderItem(item) {
   list.prepend(cardElement);
 }
 
-//функции удаления и like//
+
+//функции удаления, like, окна fullview//
 function addLiseners(el) {
   el.querySelector('.cards__delete-button').addEventListener('click', deleteCard);
   el.querySelector('.cards__button').addEventListener('click', likeCard);
@@ -140,10 +145,6 @@ function fullviewCardOpen(evt) {
   openPopup(popupFullview);
 }
 
-buttonClosePopupFullview.addEventListener('click', () => {
-  closePopup(popupFullview);
-});
-
 
 //функция добавления новой карточки//
 function createNewCard() {
@@ -152,7 +153,6 @@ function createNewCard() {
     'link': photoInputLink.value
   }); return newItem;
 };
-
 
 
 //функция очищения попапа после закрытия//
