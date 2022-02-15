@@ -1,6 +1,6 @@
 //переменные для PopupProfile//
 const buttonChange = document.querySelector('.profile__button-change');
-const popupProfile = document.querySelector('.profile_popup')
+const popupProfile = document.querySelector('.popup_profile')
 const buttonClosePopupProfile = popupProfile.querySelector('.button-close');
 const formPopupProfile = popupProfile.querySelector('.popup__form');
 const nameInputProfile = popupProfile.querySelector('.input_field_name');
@@ -11,7 +11,7 @@ const buttonSavepopupProfile = popupProfile.querySelector('.button-save');
 
 //переменные для popupPhoto//
 const buttonAddPhoto = document.querySelector('.profile__button-addphoto');
-const popupPhoto = document.querySelector('.photo_popup')
+const popupPhoto = document.querySelector('.popup_photo')
 const buttonClosePopupPhoto = popupPhoto.querySelector('.button-close');
 const buttonCreate = popupPhoto.querySelector('.button-save');
 const photoInputName = popupPhoto.querySelector('.input_field_title');
@@ -19,11 +19,11 @@ const photoInputLink = popupPhoto.querySelector('.input_field_link');
 const formPopupPhoto = popupPhoto.querySelector('.popup__form');
 
 //переменные для PopupFullview//
-const popupFullview = document.querySelector('.fullview_popup');
+const popupFullview = document.querySelector('.popup_fullview');
 const buttonClosePopupFullview = popupFullview.querySelector('.button-close');
 const picture = document.querySelectorAll('.cards');
-const fullviewPicture = popupFullview.querySelector('.popupFullview__picture');
-const captionPicture = popupFullview.querySelector('.popupFullview__caption');
+const fullviewPicture = popupFullview.querySelector('.popupfullview__picture');
+const captionPicture = popupFullview.querySelector('.popupfullview__caption');
 
 
 //функции открытия и закрытия попапов//
@@ -170,4 +170,3 @@ formPopupPhoto.addEventListener( 'submit', (evt) => {
 });
 
 render();
-
