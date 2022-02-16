@@ -61,8 +61,7 @@ buttonClosePopupFullview.addEventListener('click', () => {
 
 
 //функция редактирования попапа//
-function formSubmit(evt) {
-
+function editProfile(evt) {
   evt.preventDefault();
 
   profileName.textContent = nameInputProfile.value;
@@ -71,7 +70,7 @@ function formSubmit(evt) {
   closePopup(popupProfile);
 };
 
-formPopupProfile.addEventListener('submit', formSubmit);
+formPopupProfile.addEventListener('submit', editProfile);
 
 
 //массив с карточками//
@@ -108,11 +107,13 @@ const list = document.querySelector('.images__list');
 
 function render() {
   cardItems.forEach((item) => {
-    list.prepend(renderItem(item));
+    list.prepend(createCard(item));
   });
 }
+
+
 //функция добавления элемента массива в карточку//
-function renderItem(item) {
+function createCard(item) {
   const cardElement = template.cloneNode(true);
   cardElement.querySelector('.cards__title').textContent = item.name;
   cardElement.querySelector('.cards__picture').src = item.link;
@@ -127,7 +128,7 @@ function renderItem(item) {
 function addLiseners(el) {
   el.querySelector('.cards__delete-button').addEventListener('click', deleteCard);
   el.querySelector('.cards__button').addEventListener('click', likeCard);
-  el.querySelector('.cards__picture').addEventListener('click', fullviewCardOpen);
+  el.querySelector('.cards__picture').addEventListener('click', openFullviewCard);
 }
 
 function deleteCard(evt) {
@@ -138,7 +139,7 @@ function likeCard(evt) {
   evt.target.closest('.cards__button').classList.toggle('cards__button_like');
 }
 
-function fullviewCardOpen(evt) {
+function openFullviewCard(evt) {
   fullviewPicture.src = evt.target.src;
   fullviewPicture.alt = evt.target.alt;
   captionPicture.textContent = evt.target.alt;
@@ -149,7 +150,7 @@ function fullviewCardOpen(evt) {
 
 //функция добавления новой карточки//
 function createNewCard() {
-  const newCard = renderItem({
+  const newCard = createCard({
     'name': photoInputName.value,
     'link': photoInputLink.value
   });
@@ -162,6 +163,8 @@ function clearInput() {
   photoInputLink.value = '';
   photoInputName.value = '';
 }
+
+
 //вызов функций попапа//
 formPopupPhoto.addEventListener( 'submit', (evt) => {
   evt.preventDefault();
