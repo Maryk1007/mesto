@@ -107,7 +107,9 @@ const template = document.querySelector('.item__template').content;
 const list = document.querySelector('.images__list');
 
 function render() {
-  cardItems.forEach(renderItem);
+  cardItems.forEach((item) => {
+    list.prepend(renderItem(item));
+  });
 }
 //функция добавления элемента массива в карточку//
 function renderItem(item) {
@@ -117,8 +119,7 @@ function renderItem(item) {
   cardElement.querySelector('.cards__picture').alt = item.name;
 
   addLiseners(cardElement);
-
-  list.prepend(cardElement);
+  return cardElement;
 }
 
 
@@ -148,10 +149,11 @@ function fullviewCardOpen(evt) {
 
 //функция добавления новой карточки//
 function createNewCard() {
-    const newItem = renderItem({
+  const newCard = renderItem({
     'name': photoInputName.value,
     'link': photoInputLink.value
-  }); return newItem;
+  });
+  list.prepend(newCard);
 };
 
 
