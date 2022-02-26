@@ -59,6 +59,34 @@ buttonClosePopupFullview.addEventListener('click', () => {
   closePopup(popupFullview);
 });
 
+//закрытие попапов с помощью оверлей//
+
+document.addEventListener('click', (evt) => {
+  if(evt.target === popupProfile) {
+    closePopup(popupProfile);
+  };
+
+  if(evt.target === popupPhoto) {
+    closePopup(popupPhoto);
+  };
+
+  if(evt.target === popupFullview) {
+    closePopup(popupFullview);
+  };
+});
+
+
+//закрытие попапов при нажатии на esc//
+
+// function closePopupEsc(evt) {
+//   if(evt.key === '27') {
+//     closePopup(formPopupProfile);
+//   }
+// };
+
+// window.addEventListener('keydown', closePopupEsc);
+
+
 
 //функция редактирования попапа//
 function editProfile(evt) {
