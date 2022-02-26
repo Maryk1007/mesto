@@ -33,10 +33,12 @@
     <div class="popup popup_profile">
       <div class="popup__container">
         <button type="button" class="button-close" aria-label="кнопка закрытия формы"></button>
-        <form name="formPopupProfile" class="popup__form">
+        <form name="formPopupProfile" class="popup__form" novalidate>
           <h2 class="popup__text">Редактировать профиль</h2>
-          <input type="text" name="userName" required placeholder="Напишите ваше имя" class="input input_field_name">
-          <input type="text" name="userJob" required placeholder="Напишите чем вы занимаетесь" class="input input_field_description">
+          <input type="text" id="userName" name="userName" required minlength="2" maxlength="40" placeholder="Напишите ваше имя" class="input input_field_name">
+          <span id="error-userName" class="userName-error userName-error_visible"></span>
+          <input type="text" id="userJob" name="userJob" required minlength="2" maxlength="200" placeholder="Напишите чем вы занимаетесь" class="input input_field_description">
+          <span id="error-userJob" class="userJob-error userJob-error_visible"></span>
           <button type="submit" class="button-save">Сохранить</button>
         </form>
       </div>
@@ -44,10 +46,12 @@
     <div class="popup popup_photo">
       <div class="popup__container">
         <button type="button" class="button-close" aria-label="кнопка закрытия формы"></button>
-        <form name="formPopupPhoto" class="popup__form">
+        <form name="formPopupPhoto" class="popup__form" novalidate>
           <h2 class="popup__text">Новое место</h2>
-          <input type="text" name="photoName" required placeholder="Название" class="input input_field_title">
-          <input type="text" name="photoLink" required placeholder="Ссылка на картинку" class="input input_field_link">
+          <input type="text" id="photoName" name="photoName" required placeholder="Название" class="input input_field_title">
+          <span id ="error-photoName" class="photoName-error photoName-error_visible"></span>
+          <input type="url" id="photoLink" name="photoLink" required placeholder="Ссылка на картинку" class="input input_field_link">
+          <span id="error-photoLink" class="photoLink-error photoLink-error_visible"></span>
           <button type="submit" class="button-save">Создать</button>
         </form>
       </div>
@@ -72,5 +76,6 @@
       </li>
     </template>
     <script src="js/index.js"></script>
+    <script src="js/validate.js"></script>
 </body>
 </html>
