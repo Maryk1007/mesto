@@ -46,18 +46,18 @@ function enableValidationProfile() {
 enableValidationProfile();
 
 
-function enableValidationPhoto() {
-  const formPopupPhoto = popupPhoto.querySelector('.popup__form');
+// function enableValidationPhoto() {
+//   const formPopupPhoto = popupPhoto.querySelector('.popup__form');
 
-  formPopupPhoto.addEventListener('submit', formSubmit);
+//   formPopupPhoto.addEventListener('submit', formSubmit);
 
-  const inputsPhoto = popupPhoto.querySelectorAll('.input');
+//   const inputsPhoto = popupPhoto.querySelectorAll('.input');
 
-  inputsPhoto.forEach((input) => {
-    input.addEventListener('input', () => checkInputValidity(input));
-  });
-};
+//   inputsPhoto.forEach((input) => {
+//     input.addEventListener('input', () => checkInputValidity(input));
+//   });
+// };
 
-enableValidationPhoto();
+// enableValidationPhoto();
 
 
