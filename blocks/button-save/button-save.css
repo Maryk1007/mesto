@@ -1,12 +1,12 @@
 .button-save {
   margin: 0 auto;
   display: block;
-  border: none;
   border-radius: 2px;
+  border: 1px #000000 solid;
   color: #FFFFFF;
   background-color: #000000;
-  width: 238px;
-  padding: 14px 14px;
+  width: 236px;
+  padding: 13px 13px;
   font-family: "Inter", "Arial", sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -17,6 +17,13 @@
 
 .button-save:hover {
   opacity: .8;
+}
+
+.button-save:disabled {
+  background-color: transparent;
+  color: #E5E5E5;
+  border-color: #E5E5E5;
+  cursor: default;
 }
 
 @media (min-width: 1280px) {
