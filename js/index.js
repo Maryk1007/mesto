@@ -1,6 +1,6 @@
 //переменные для PopupProfile//
 const buttonChange = document.querySelector('.profile__button-change');
-const popupProfile = document.querySelector('.popup_profile')
+const popupProfile = document.querySelector('.popup_profile');
 const buttonClosePopupProfile = popupProfile.querySelector('.button-close');
 const formPopupProfile = popupProfile.querySelector('.popup__form');
 const nameInputProfile = popupProfile.querySelector('.input_field_name');
@@ -11,7 +11,7 @@ const buttonSavepopupProfile = popupProfile.querySelector('.button-save');
 
 //переменные для popupPhoto//
 const buttonAddPhoto = document.querySelector('.profile__button-addphoto');
-const popupPhoto = document.querySelector('.popup_photo')
+const popupPhoto = document.querySelector('.popup_photo');
 const buttonClosePopupPhoto = popupPhoto.querySelector('.button-close');
 const buttonCreate = popupPhoto.querySelector('.button-save');
 const photoInputName = popupPhoto.querySelector('.input_field_title');
@@ -32,7 +32,7 @@ function openPopup(popup) {
 };
 
 function closePopup(popup) {
-  popup.classList.remove('popup_opened')
+  popup.classList.remove('popup_opened');
 };
 
 

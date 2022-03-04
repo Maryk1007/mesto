@@ -1,7 +1,7 @@
-.userJob-error_visible {
+.username-error {
   display: block;
   position: absolute;
-  top: 215px;
+  top: 155px;
   font-family: "Inter", "Arial", sans-serif;
   font-weight: 400;
   font-size: 12px;

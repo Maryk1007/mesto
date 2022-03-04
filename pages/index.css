@@ -29,10 +29,10 @@
 @import url(../blocks/popup/__text/popup__text.css);
 @import url(../blocks/input/input.css);
 @import url(../blocks/input/_error/input_error.css);
-@import url(../blocks/userName-error/_visible/userName-error_visible.css);
-@import url(../blocks/userJob-error/_visible/userJob-error_visible.css);
-@import url(../blocks/photoName-error/_visible/photoName-error_visible.css);
-@import url(../blocks/photoLink-error/_visible/photoLink-error_visible.css);
+@import url(../blocks/username-error/username-error.css);
+@import url(../blocks/userjob-error/userjob-error.css);
+@import url(../blocks/photoname-error/photoname-error.css);
+@import url(../blocks/photolink-error/photolink-error.css);
 @import url(../blocks/button-close/button-close.css);
 @import url(../blocks/button-save/button-save.css);
 @import url(../blocks/popup/_opened/popup_opened.css);

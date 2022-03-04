@@ -1,63 +1,59 @@
-// //переменные popupProfile//
-// const formPopupProfile = popupProfile.querySelector('.popup__form');
-// const nameInputProfile = popupProfile.querySelector('.input_field_name');
-// const jobInputProfile = popupProfile.querySelector('.input_field_description');
-// const buttonSavepopupProfile = popupProfile.querySelector('.button-save');
-// const formErrorName = popupProfile.querySelector(`.${input.id}-error`);
-// const formErrorJob = popupProfile.querySelector(`.${input.id}-error`);
+//валидация для одной формы//
 
-// //переменные popupPhoto//
-// const formPopupPhoto = popupPhoto.querySelector('.popup__form');
-// const photoInputName = popupPhoto.querySelector('.input_field_title');
-// const photoInputLink = popupPhoto.querySelector('.input_field_link');
-// const buttonCreate = popupPhoto.querySelector('.button-save');
+// const formSubmit = (evt) => {
+//   evt.preventDefault();
 
-const formSubmit = (evt) => {
-  evt.preventDefault();
+//   console.log('form submited is valid? ', formPopupPhoto.checkValidity());
+// };
 
-  console.log('form submited is valid? ', formPopupProfile.checkValidity());
-};
+// function enableValidation() {
+//   formPopupPhoto.addEventListener('submit', formSubmit);
 
-const checkInputValidity = (input) => {
+//   const inputsProfile = formPopupPhoto.querySelectorAll('.input');
+
+//   inputsProfile.forEach((input) => {
+//     input.addEventListener('input', () => checkInputValidity(input));
+//   });
+
+// };
+
+// enableValidation();
+
+
+//Валидация для двух форм//
+
+const checkInputValidity = (form, input) => {
 const errorMessage = document.querySelector(`#error-${input.id}`);
 
   if(input.validity.valid) {
+    console.log(input.validity.valid);
     errorMessage.textContent = '';
+    input.classList.remove('input_error');
   }
   else {
     errorMessage.textContent = input.validationMessage;
+    input.classList.add('input_error');
   }
 };
 
 
-function enableValidationProfile() {
-  const formPopupProfile = popupProfile.querySelector('.popup__form');
+function enableValidation() {
 
-  formPopupProfile.addEventListener('submit', formSubmit);
+  const forms = document.querySelectorAll('.popup__form');
 
-  const inputsProfile = popupProfile.querySelectorAll('.input');
+  forms.forEach((form) => {
+    form.addEventListener('submit', (evt) => {
+      evt.preventDefault();
 
-  inputsProfile.forEach((input) => {
-    input.addEventListener('input', () => checkInputValidity(input));
+      console.log('form submited is valid? ', form.checkValidity());
+    });
+
+    const inputs = form.querySelectorAll('.input');
+
+    inputs.forEach((input) => {
+      input.addEventListener('input', () => checkInputValidity(form, input));
+    });
   });
-
 };
 
-enableValidationProfile();
-
-
-// function enableValidationPhoto() {
-//   const formPopupPhoto = popupPhoto.querySelector('.popup__form');
-
-//   formPopupPhoto.addEventListener('submit', formSubmit);
-
-//   const inputsPhoto = popupPhoto.querySelectorAll('.input');
-
-//   inputsPhoto.forEach((input) => {
-//     input.addEventListener('input', () => checkInputValidity(input));
-//   });
-// };
-
-// enableValidationPhoto();
-
-
+enableValidation();
