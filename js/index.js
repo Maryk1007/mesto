@@ -59,33 +59,33 @@ buttonClosePopupFullview.addEventListener('click', () => {
   closePopup(popupFullview);
 });
 
-//закрытие попапов с помощью оверлей//
 
-document.addEventListener('click', (evt) => {
-  if(evt.target === popupProfile) {
-    closePopup(popupProfile);
-  };
+//закрытие попапов с помощью оверлей и escape//
+const closePopupOverlay = () => {
+  const popups = document.querySelectorAll('.popup');
+  document.addEventListener ('click', (evt) => {
+    popups.forEach((popupElement) => {
+      if (evt.target === popupElement) {
+        closePopup(popupElement)
+      };
+    });
+  });
+};
 
-  if(evt.target === popupPhoto) {
-    closePopup(popupPhoto);
-  };
+closePopupOverlay();
 
-  if(evt.target === popupFullview) {
-    closePopup(popupFullview);
-  };
-});
+const closePopupEsc = () => {
+  const popups = document.querySelectorAll('.popup');
+  document.addEventListener ('keydown', (evt) => {
+    popups.forEach((popupElement) => {
+      if (evt.key === 'Escape') {
+        closePopup(popupElement)
+      };
+    });
+  });
+};
 
-
-//закрытие попапов при нажатии на esc//
-
-// function closePopupEsc(evt) {
-//   if(evt.key === '27') {
-//     closePopup(formPopupProfile);
-//   }
-// };
-
-// window.addEventListener('keydown', closePopupEsc);
-
+closePopupEsc();
 
 
 //функция редактирования попапа//

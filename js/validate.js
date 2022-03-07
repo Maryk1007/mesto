@@ -13,7 +13,6 @@ const hideError = (formElement, inputElement) => {
 };
 
 const checkValidity = (formElement, inputElement) => {
-  console.log(inputElement.validity);
   const InputNotValid = !inputElement.validity.valid;
 
   if(InputNotValid) {
@@ -60,7 +59,6 @@ const enableValidation = () => {
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      console.log(formElement.checkValidity());
     });
 
     setEventListeners(formElement);
