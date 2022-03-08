@@ -29,10 +29,16 @@ const captionPicture = popupFullview.querySelector('.popupfullview__caption');
 //функции открытия и закрытия попапов//
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+
+  popup.addEventListener('click', closePopupOverlay);
+  document.addEventListener('keydown', closePopupEsc);
 };
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+
+  popup.removeEventListener('click', closePopupOverlay);
+  document.removeEventListener('keydown', closePopupEsc);
 };
 
 
@@ -43,50 +49,29 @@ buttonChange.addEventListener('click', () => {
   openPopup(popupProfile);
 });
 
-buttonClosePopupProfile.addEventListener('click', () => {
-  closePopup(popupProfile);
-});
 
 buttonAddPhoto.addEventListener('click', () => {
   openPopup(popupPhoto);
 });
 
-buttonClosePopupPhoto.addEventListener( 'click', () => {
-  closePopup(popupPhoto);
-});
 
-buttonClosePopupFullview.addEventListener('click', () => {
-  closePopup(popupFullview);
-});
-
-
-//закрытие попапов с помощью оверлей и escape//
-const closePopupOverlay = () => {
+const closePopupOverlay = (evt) => {
   const popups = document.querySelectorAll('.popup');
-  document.addEventListener ('click', (evt) => {
-    popups.forEach((popupElement) => {
-      if (evt.target === popupElement) {
-        closePopup(popupElement)
-      };
-    });
+  popups.forEach((popupElement) => {
+    if ((evt.target.classList.contains('popup')) || (evt.target.classList.contains('button-close'))) {
+      closePopup(popupElement);
+    };
   });
 };
 
-closePopupOverlay();
-
-const closePopupEsc = () => {
+const closePopupEsc = (evt) => {
   const popups = document.querySelectorAll('.popup');
-  document.addEventListener ('keydown', (evt) => {
-    popups.forEach((popupElement) => {
-      if (evt.key === 'Escape') {
-        closePopup(popupElement)
-      };
-    });
+  popups.forEach((popupElement) => {
+    if (evt.key === 'Escape') {
+      closePopup(popupElement);
+    };
   });
 };
-
-closePopupEsc();
-
 
 //функция редактирования попапа//
 function editProfile(evt) {
