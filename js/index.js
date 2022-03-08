@@ -42,18 +42,6 @@ function closePopup(popup) {
 };
 
 
-//обработчики открытия и закрытия попапов//
-buttonChange.addEventListener('click', () => {
-  nameInputProfile.value = profileName.textContent;
-  jobInputProfile.value = profileSelfDescription.textContent;
-  openPopup(popupProfile);
-});
-
-
-buttonAddPhoto.addEventListener('click', () => {
-  openPopup(popupPhoto);
-});
-
 
 const closePopupOverlay = (evt) => {
   const popups = document.querySelectorAll('.popup');
@@ -72,6 +60,20 @@ const closePopupEsc = (evt) => {
     };
   });
 };
+
+
+//обработчики открытия попапов//
+buttonChange.addEventListener('click', () => {
+  nameInputProfile.value = profileName.textContent;
+  jobInputProfile.value = profileSelfDescription.textContent;
+  openPopup(popupProfile);
+});
+
+
+buttonAddPhoto.addEventListener('click', () => {
+  openPopup(popupPhoto);
+});
+
 
 //функция редактирования попапа//
 function editProfile(evt) {
@@ -137,7 +139,7 @@ function createCard(item) {
 }
 
 
-//функции удаления, like, окна fullview//
+//функции удаления, like, открытия окна fullview//
 function addLiseners(el) {
   el.querySelector('.cards__delete-button').addEventListener('click', deleteCard);
   el.querySelector('.cards__button').addEventListener('click', likeCard);
