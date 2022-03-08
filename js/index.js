@@ -3,8 +3,8 @@ const buttonChange = document.querySelector('.profile__button-change');
 const popupProfile = document.querySelector('.popup_profile');
 const buttonClosePopupProfile = popupProfile.querySelector('.button-close');
 const formPopupProfile = popupProfile.querySelector('.popup__form');
-const nameInputProfile = popupProfile.querySelector('.input_field_name');
-const jobInputProfile = popupProfile.querySelector('.input_field_description');
+const nameInputProfile = popupProfile.querySelector('.form__input_field_name');
+const jobInputProfile = popupProfile.querySelector('.form__input_field_description');
 const profileName = document.querySelector('.profile__name');
 const profileSelfDescription = document.querySelector('.profile__self-description');
 const buttonSavepopupProfile = popupProfile.querySelector('.button-save');
@@ -14,8 +14,8 @@ const buttonAddPhoto = document.querySelector('.profile__button-addphoto');
 const popupPhoto = document.querySelector('.popup_photo');
 const buttonClosePopupPhoto = popupPhoto.querySelector('.button-close');
 const buttonCreate = popupPhoto.querySelector('.button-save');
-const photoInputName = popupPhoto.querySelector('.input_field_title');
-const photoInputLink = popupPhoto.querySelector('.input_field_link');
+const photoInputName = popupPhoto.querySelector('.form__input_field_title');
+const photoInputLink = popupPhoto.querySelector('.form__input_field_link');
 const formPopupPhoto = popupPhoto.querySelector('.popup__form');
 
 //переменные для PopupFullview//

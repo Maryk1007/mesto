@@ -2,14 +2,14 @@ const showError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`#error-${inputElement.id}`);
 
   errorElement.textContent = inputElement.validationMessage;
-  inputElement.classList.add('input_error');
+  inputElement.classList.add('form__field-error');
 };
 
 const hideError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`#error-${inputElement.id}`);
 
   errorElement.textContent = '';
-  inputElement.classList.remove('input_error');
+  inputElement.classList.remove('form__field-error');
 };
 
 const checkValidity = (formElement, inputElement) => {
