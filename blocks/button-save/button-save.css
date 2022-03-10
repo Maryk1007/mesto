@@ -19,13 +19,6 @@
   opacity: .8;
 }
 
-.button-save:disabled {
-  background-color: transparent;
-  color: #E5E5E5;
-  border-color: #E5E5E5;
-  cursor: default;
-}
-
 @media (min-width: 1280px) {
   .button-save {
     width: 358px;
