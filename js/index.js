@@ -173,20 +173,15 @@ function createNewCard() {
 };
 
 
-//функция очищения попапа после закрытия//
-function clearInput() {
-  photoInputLink.value = '';
-  photoInputName.value = '';
-}
-
-
 //вызов функций попапа//
 formPopupPhoto.addEventListener( 'submit', (evt) => {
   evt.preventDefault();
 
   createNewCard();
   closePopup(popupPhoto);
-  clearInput();
+  evt.target.reset();
+  buttonCreate.classList.add('button-save:disabled');
+  buttonCreate.setAttribute('disabled', true);
 });
 
 render();

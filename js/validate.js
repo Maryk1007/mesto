@@ -1,18 +1,28 @@
+const validationElements = {
+  formSelector: '.popup__form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.button-save',
+  inactiveButtonClass: 'button-save:disabled',
+  inputErrorClass: 'form__input_error',
+  errorClass: 'form__field-error_visible'
+};
+
+
 const showError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`#error-${inputElement.id}`);
   console.log(errorElement);
 
   errorElement.textContent = errorMessage;
-  errorElement.classList.add('form__field-error_visible');
-  inputElement.classList.add('form__input_error');
+  errorElement.classList.add(validationElements.errorClass);
+  inputElement.classList.add(validationElements.inputErrorClass);
 };
 
 const hideError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`#error-${inputElement.id}`);
 
   errorElement.textContent = '';
-  errorElement.classList.remove('form__field-error_visible');
-  inputElement.classList.remove('form__input_error');
+  errorElement.classList.remove(validationElements.errorClass);
+  inputElement.classList.remove(validationElements.inputErrorClass);
 };
 
 const checkValidity = (formElement, inputElement) => {
@@ -27,25 +37,27 @@ const checkValidity = (formElement, inputElement) => {
   };
 };
 
-const toggleButtonState = (inputList, submitButtonElement) => {
-  const inputElements = Array.from(inputList);
-  const hasInvalidInput = inputElements.some((inputElement) => {
+const hasInvalidInput = (inputList) => {
+  return inputList.some(inputElement => {
     return !inputElement.validity.valid;
   });
+};
 
-  if(hasInvalidInput) {
-    submitButtonElement.classList.add('button-save_disadled');
+const toggleButtonState = (inputList, submitButtonElement) => {
+
+  if(hasInvalidInput(inputList)) {
+    submitButtonElement.classList.add(validationElements.inactiveButtonClass);
     submitButtonElement.setAttribute('disabled', true);
   }
   else {
-    submitButtonElement.classList.remove('button-save_disadled');
+    submitButtonElement.classList.remove(validationElements.inactiveButtonClass);
     submitButtonElement.removeAttribute('disabled');
   };
 };
 
 const setEventListeners = (formElement) => {
-  const inputList = formElement.querySelectorAll('.form__input');
-  const submitButtonElement = formElement.querySelector('.button-save');
+  const inputList = Array.from(formElement.querySelectorAll(validationElements.inputSelector));
+  const submitButtonElement = formElement.querySelector(validationElements.submitButtonSelector);
 
   toggleButtonState(inputList, submitButtonElement);
 
@@ -58,7 +70,7 @@ const setEventListeners = (formElement) => {
 };
 
 const enableValidation = () => {
-  const formList = document.querySelectorAll('.popup__form');
+  const formList = document.querySelectorAll(validationElements.formSelector);
 
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
