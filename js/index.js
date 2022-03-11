@@ -44,21 +44,17 @@ function closePopup(popup) {
 
 
 const closePopupOverlay = (evt) => {
-  const popups = document.querySelectorAll('.popup');
-  popups.forEach((popupElement) => {
-    if ((evt.target.classList.contains('popup')) || (evt.target.classList.contains('button-close'))) {
-      closePopup(popupElement);
-    };
-  });
+  const popupOpened = document.querySelector('.popup_opened');
+  if ((evt.target.classList.contains('popup')) || (evt.target.classList.contains('button-close'))) {
+    closePopup(popupOpened);
+  };
 };
 
 const closePopupEsc = (evt) => {
-  const popups = document.querySelectorAll('.popup');
-  popups.forEach((popupElement) => {
-    if (evt.key === 'Escape') {
-      closePopup(popupElement);
-    };
-  });
+  const popupOpened = document.querySelector('.popup_opened');
+  if (evt.key === 'Escape') {
+    closePopup(popupOpened);
+  };
 };
 
 
