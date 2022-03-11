@@ -8,6 +8,7 @@ const validationElements = {
 };
 
 
+// функции добавления и удаления ошибок//
 const showError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`#error-${inputElement.id}`);
   console.log(errorElement);
@@ -25,6 +26,8 @@ const hideError = (formElement, inputElement) => {
   inputElement.classList.remove(validationElements.inputErrorClass);
 };
 
+
+//проверка инпутов на валидность//
 const checkValidity = (formElement, inputElement) => {
   const InputNotValid = !inputElement.validity.valid;
 
@@ -37,12 +40,16 @@ const checkValidity = (formElement, inputElement) => {
   };
 };
 
+
+//проверка на наличие полей с ошибкой//
 const hasInvalidInput = (inputList) => {
   return inputList.some(inputElement => {
     return !inputElement.validity.valid;
   });
 };
 
+
+//переключатель кнопки сабмита//
 const toggleButtonState = (inputList, submitButtonElement) => {
 
   if(hasInvalidInput(inputList)) {
@@ -55,6 +62,8 @@ const toggleButtonState = (inputList, submitButtonElement) => {
   };
 };
 
+
+//слушатель ввода//
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(validationElements.inputSelector));
   const submitButtonElement = formElement.querySelector(validationElements.submitButtonSelector);
@@ -69,6 +78,8 @@ const setEventListeners = (formElement) => {
   });
 };
 
+
+//включение валидации//
 const enableValidation = () => {
   const formList = document.querySelectorAll(validationElements.formSelector);
 
