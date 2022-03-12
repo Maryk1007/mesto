@@ -44,15 +44,17 @@ function closePopup(popup) {
 
 
 const closePopupOverlay = (evt) => {
-  const popupOpened = document.querySelector('.popup_opened');
+
   if ((evt.target.classList.contains('popup')) || (evt.target.classList.contains('button-close'))) {
+    const popupOpened = document.querySelector('.popup_opened');
     closePopup(popupOpened);
   };
 };
 
 const closePopupEsc = (evt) => {
-  const popupOpened = document.querySelector('.popup_opened');
+
   if (evt.key === 'Escape') {
+    const popupOpened = document.querySelector('.popup_opened');
     closePopup(popupOpened);
   };
 };
