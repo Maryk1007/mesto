@@ -1,3 +1,5 @@
+import {FormValidator} from './FormValidator.js'
+
 //переменные для PopupProfile//
 const buttonChange = document.querySelector('.profile__button-change');
 const popupProfile = document.querySelector('.popup_profile');
@@ -25,6 +27,21 @@ const picture = document.querySelectorAll('.cards');
 const fullviewPicture = popupFullview.querySelector('.popupfullview__picture');
 const captionPicture = popupFullview.querySelector('.popupfullview__caption');
 
+const validationElements = {
+  formSelector: '.popup__form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.button-save',
+  inactiveButtonClass: 'button-save:disabled',
+  inputErrorClass: 'form__input_error',
+  errorClass: 'form__field-error_visible'
+};
+
+//экземпляры класса FormValidator//
+const formProfile = new FormValidator (validationElements, formPopupProfile)
+const formAddPhoto = new FormValidator (validationElements, formPopupPhoto)
+
+formProfile.enableValidation();
+formAddPhoto.enableValidation();
 
 //функции открытия и закрытия попапов//
 function openPopup(popup) {
