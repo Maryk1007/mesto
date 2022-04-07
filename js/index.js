@@ -37,11 +37,11 @@ const validationElements = {
 };
 
 //экземпляры класса FormValidator//
-const formProfile = new FormValidator (validationElements, formPopupProfile)
-const formAddPhoto = new FormValidator (validationElements, formPopupPhoto)
+const formProfileValidation = new FormValidator (validationElements, formPopupProfile)
+const formAddPhotoValidation = new FormValidator (validationElements, formPopupPhoto)
 
-formProfile.enableValidation();
-formAddPhoto.enableValidation();
+formProfileValidation.enableValidation();
+formAddPhotoValidation.enableValidation();
 
 //функции открытия и закрытия попапов//
 function openPopup(popup) {
@@ -79,6 +79,7 @@ const closePopupEsc = (evt) => {
 
 //обработчики открытия попапов//
 buttonChange.addEventListener('click', () => {
+  formProfileValidation.resetErrors();
   nameInputProfile.value = profileName.textContent;
   jobInputProfile.value = profileSelfDescription.textContent;
   openPopup(popupProfile);
@@ -86,6 +87,7 @@ buttonChange.addEventListener('click', () => {
 
 
 buttonAddPhoto.addEventListener('click', () => {
+  formAddPhotoValidation.resetErrors();
   openPopup(popupPhoto);
 });
 
