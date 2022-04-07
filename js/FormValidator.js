@@ -2,6 +2,8 @@ export class FormValidator {
   constructor (settings, form) {
     this._form = form
     this._settings = settings
+    this._inputList = Array.from(this._form.querySelectorAll(this._settings.inputSelector));
+    this._submitButtonElement = this._form.querySelector(this._settings.submitButtonSelector);
   }
 
   _showError (inputElement, errorMessage) {
@@ -23,9 +25,9 @@ export class FormValidator {
   };
 
   _checkValidity (inputElement) {
-    const InputNotValid = !inputElement.validity.valid;
+    const inputNotValid = !inputElement.validity.valid;
 
-    if(InputNotValid) {
+    if(inputNotValid) {
       this._showError(inputElement, inputElement.validationMessage);
     }
     else {
@@ -53,9 +55,6 @@ export class FormValidator {
   };
 
   _setEventListeners () {
-    this._inputList = Array.from(this._form.querySelectorAll(this._settings.inputSelector));
-    this._submitButtonElement = this._form.querySelector(this._settings.submitButtonSelector);
-
     this._toggleButtonState();
 
     this._inputList.forEach((inputElement) => {
