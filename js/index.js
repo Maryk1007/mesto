@@ -1,4 +1,7 @@
-import {FormValidator} from './FormValidator.js'
+import { FormValidator } from './FormValidator.js'
+import { Card } from './Card.js';
+
+import {fullviewPicture, captionPicture, popupFullview, openPopup, closePopup, closePopupOverlay, closePopupEsc} from './utils.js'
 
 //переменные для PopupProfile//
 const buttonChange = document.querySelector('.profile__button-change');
@@ -21,11 +24,8 @@ const photoInputLink = popupPhoto.querySelector('.form__input_field_link');
 const formPopupPhoto = popupPhoto.querySelector('.popup__form');
 
 //переменные для PopupFullview//
-const popupFullview = document.querySelector('.popup_fullview');
 const buttonClosePopupFullview = popupFullview.querySelector('.button-close');
 const picture = document.querySelectorAll('.cards');
-const fullviewPicture = popupFullview.querySelector('.popupfullview__picture');
-const captionPicture = popupFullview.querySelector('.popupfullview__caption');
 
 const validationElements = {
   formSelector: '.popup__form',
@@ -42,39 +42,6 @@ const formAddPhotoValidation = new FormValidator (validationElements, formPopupP
 
 formProfileValidation.enableValidation();
 formAddPhotoValidation.enableValidation();
-
-//функции открытия и закрытия попапов//
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
-
-  popup.addEventListener('click', closePopupOverlay);
-  document.addEventListener('keydown', closePopupEsc);
-};
-
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-
-  popup.removeEventListener('click', closePopupOverlay);
-  document.removeEventListener('keydown', closePopupEsc);
-};
-
-
-
-const closePopupOverlay = (evt) => {
-
-  if ((evt.target.classList.contains('popup')) || (evt.target.classList.contains('button-close'))) {
-    const popupOpened = document.querySelector('.popup_opened');
-    closePopup(popupOpened);
-  };
-};
-
-const closePopupEsc = (evt) => {
-
-  if (evt.key === 'Escape') {
-    const popupOpened = document.querySelector('.popup_opened');
-    closePopup(popupOpened);
-  };
-};
 
 
 //обработчики открытия попапов//
@@ -134,59 +101,28 @@ const cardItems = [
 ];
 
 //цикл для перебора массива//
-const template = document.querySelector('.item__template').content;
+// const template = document.querySelector('.item__template').content;
 const list = document.querySelector('.images__list');
 
 function render() {
-  cardItems.forEach((item) => {
-    list.prepend(createCard(item));
+  cardItems.forEach((data) => {
+    const card = new Card(data, '.item__template');
+    const cardElement = card.createCard();
+
+    list.prepend(cardElement);
   });
-}
-
-
-//функция добавления элемента массива в карточку//
-function createCard(item) {
-  const cardElement = template.cloneNode(true);
-  cardElement.querySelector('.cards__title').textContent = item.name;
-  cardElement.querySelector('.cards__picture').src = item.link;
-  cardElement.querySelector('.cards__picture').alt = item.name;
-
-  addLiseners(cardElement);
-  return cardElement;
-}
-
-
-//функции удаления, like, открытия окна fullview//
-function addLiseners(el) {
-  el.querySelector('.cards__delete-button').addEventListener('click', deleteCard);
-  el.querySelector('.cards__button').addEventListener('click', likeCard);
-  el.querySelector('.cards__picture').addEventListener('click', openFullviewCard);
-}
-
-function deleteCard(evt) {
-  evt.target.closest('.cards').remove();
-}
-
-function likeCard(evt) {
-  evt.target.closest('.cards__button').classList.toggle('cards__button_like');
-}
-
-function openFullviewCard(evt) {
-  fullviewPicture.src = evt.target.src;
-  fullviewPicture.alt = evt.target.alt;
-  captionPicture.textContent = evt.target.alt;
-
-  openPopup(popupFullview);
 }
 
 
 //функция добавления новой карточки//
 function createNewCard() {
-  const newCard = createCard({
+  const newCard = new Card({
     'name': photoInputName.value,
     'link': photoInputLink.value
-  });
-  list.prepend(newCard);
+  }, '.item__template');
+
+  const newCardElement = newCard.createCard()
+  list.prepend(newCardElement);
 };
 
 
