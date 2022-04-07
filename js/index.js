@@ -103,28 +103,29 @@ function editProfile(evt) {
 formPopupProfile.addEventListener('submit', editProfile);
 
 
-//цикл для перебора массива//
+//получение карточки//
 const cardsContainer = document.querySelector('.images__list');
+
+const getCardItem = (data) => {
+  const card = new Card(data, '.item__template');
+  const cardElement = card.createCard();
+
+  cardsContainer.prepend(cardElement);
+}
 
 function render() {
   cardItems.forEach((data) => {
-    const card = new Card(data, '.item__template');
-    const cardElement = card.createCard();
-
-    cardsContainer.prepend(cardElement);
+    getCardItem(data);
   });
 }
 
 
 //функция добавления новой карточки//
 function createNewCard() {
-  const newCard = new Card({
+  const newCard = getCardItem({
     'name': photoInputName.value,
     'link': photoInputLink.value
   }, '.item__template');
-
-  const newCardElement = newCard.createCard()
-  list.prepend(newCardElement);
 };
 
 
