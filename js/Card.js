@@ -3,13 +3,15 @@ import {fullviewPicture, captionPicture, popupFullview, openPopup, closePopup, c
 export class Card {
 
   constructor (data, templateSelector) {
-    this._template = document.querySelector(templateSelector).content;
+    this._template = document.querySelector(templateSelector)
+          .content.querySelector('.cards');
 
     this._name = data.name
     this._link = data.link
   }
-  _deleteCard(evt) {
-    evt.target.closest('.cards').remove();
+  _deleteCard = () => {
+    this._cardElement.remove();
+    this._cardElement = null;
   }
 
   _likeCard(evt) {
@@ -25,13 +27,14 @@ export class Card {
   }
 
   createCard() {
-    const cardElement = this._template.cloneNode(true);
-    cardElement.querySelector('.cards__title').textContent = this._name;
-    cardElement.querySelector('.cards__picture').src = this._link;
-    cardElement.querySelector('.cards__picture').alt = this._name;
+    this._cardElement = this._template.cloneNode(true);
+    const pictureElement = this._cardElement.querySelector('.cards__picture');
+    this._cardElement.querySelector('.cards__title').textContent = this._name;
+    pictureElement.src = this._link;
+    pictureElement.alt = this._name;
 
-    this._addLiseners(cardElement);
-    return cardElement;
+    this._addLiseners(this._cardElement);
+    return this._cardElement;
   }
 
   _addLiseners(el) {
