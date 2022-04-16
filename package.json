@@ -1,0 +1,29 @@
+{
+  "name": "mesto",
+  "version": "0.0.1",
+  "description": "#### Обзор Это интерактивная страница о путешествиях, куда можно добавлять фотографии, удалять их и ставить лайки.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maryk1007/mesto.git"
+  },
+  "author": "Maria Lapshova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maryk1007/mesto/issues"
+  },
+  "homepage": "https://github.com/Maryk1007/mesto#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  }
+}
