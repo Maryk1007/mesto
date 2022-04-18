@@ -1,8 +1,3 @@
-export const popupFullview = document.querySelector('.popup_fullview');
-export const fullviewPicture = popupFullview.querySelector('.popupfullview__picture');
-export const captionPicture = popupFullview.querySelector('.popupfullview__caption');
-
-
 export function openPopup(popup) {
   popup.classList.add('popup_opened');
 

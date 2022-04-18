@@ -1,4 +1,5 @@
-import {fullviewPicture, captionPicture, popupFullview, openPopup, closePopup, closePopupOverlay, closePopupEsc} from '../utils.js'
+import { openPopup, closePopup, closePopupOverlay, closePopupEsc } from '../utils.js';
+import { fullviewPicture, captionPicture, popupFullview } from '../constants.js';
 
 export class Card {
 
