@@ -2,19 +2,14 @@
 import { Card } from './Card.js'
 
 export default class Section {
-  constructor({ data }, containerSelector) {
+  constructor({ data, renderer }, containerSelector) {
     this._initialArray = data;
+    this._renderer = renderer;
     this._container = document.querySelector(containerSelector);
   }
 
   renderItems() {
-    this._initialArray.forEach((data) => {
-      const card = new Card(data, '.item__template');
-      const cardElement = card.createCard();
-
-      this.addItem(cardElement);
-      // cardsContainer.prepend(cardElement);
-    });
+    this._initialArray.forEach(item => this._renderer(item));
   }
 
   addItem(element) {

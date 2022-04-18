@@ -81,7 +81,13 @@ formPopupProfile.addEventListener('submit', editProfile);
 //получение карточки//
 
 const cardList = new Section({
-  data: cardItems
+  data: cardItems,
+  renderer: (cardItem) => {
+    const card = new Card(cardItem, '.item__template');
+      const cardElement = card.createCard();
+
+      cardList.addItem(cardElement);
+  }
 }, cardsContainer);
 
 cardList.renderItems();
