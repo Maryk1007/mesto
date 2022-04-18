@@ -1,6 +1,6 @@
-import { FormValidator } from './FormValidator.js'
-import { Card } from './Card.js';
-import {fullviewPicture, captionPicture, popupFullview, openPopup, closePopup, closePopupOverlay, closePopupEsc} from './utils.js'
+import { FormValidator } from '../js/components/FormValidator.js'
+import { Card } from '../js/components/Card.js';
+import {fullviewPicture, captionPicture, popupFullview, openPopup, closePopup, closePopupOverlay, closePopupEsc} from '../js/utils.js'
 
 import css from '../pages/index.css';
 
