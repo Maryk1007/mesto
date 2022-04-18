@@ -1,4 +1,5 @@
-import { FormValidator } from '../js/components/FormValidator.js'
+import Section from '../js/components/Section.js';
+import { FormValidator } from '../js/components/FormValidator.js';
 import { Card } from '../js/components/Card.js';
 import { openPopup, closePopup, closePopupOverlay, closePopupEsc} from '../js/utils.js'
 import { cardItems, popupFullview, fullviewPicture, captionPicture, cardsContainer } from '../js/constants.js';
@@ -79,27 +80,33 @@ formPopupProfile.addEventListener('submit', editProfile);
 
 //получение карточки//
 
-const getCardItem = (data) => {
-  const card = new Card(data, '.item__template');
-  const cardElement = card.createCard();
+const cardList = new Section({
+  data: cardItems
+}, cardsContainer);
 
-  cardsContainer.prepend(cardElement);
-}
+cardList.renderItems();
 
-function render() {
-  cardItems.forEach((data) => {
-    getCardItem(data);
-  });
-}
+// const getCardItem = (data) => {
+//   const card = new Card(data, '.item__template');
+//   const cardElement = card.createCard();
+
+//   cardsContainer.prepend(cardElement);
+// }
+
+// function render() {
+//   cardItems.forEach((data) => {
+//     getCardItem(data);
+//   });
+// }
 
 
-//функция добавления новой карточки//
-function createNewCard() {
-  const newCard = getCardItem({
-    'name': photoInputName.value,
-    'link': photoInputLink.value
-  }, '.item__template');
-};
+// //функция добавления новой карточки//
+// function createNewCard() {
+//   const newCard = getCardItem({
+//     'name': photoInputName.value,
+//     'link': photoInputLink.value
+//   }, '.item__template');
+// };
 
 
 //вызов функций попапа//
@@ -111,4 +118,3 @@ formPopupPhoto.addEventListener( 'submit', (evt) => {
   evt.target.reset();
 });
 
-render();

@@ -25,7 +25,7 @@ export const cardItems = [
   }
 ];
 
-export const cardsContainer = document.querySelector('.images__list');
+export const cardsContainer = '.images__list';
 export const popupFullview = document.querySelector('.popup_fullview');
 export const fullviewPicture = popupFullview.querySelector('.popupfullview__picture');
 export const captionPicture = popupFullview.querySelector('.popupfullview__caption');
