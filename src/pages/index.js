@@ -92,27 +92,22 @@ const cardList = new Section({
 
 cardList.renderItems();
 
-// const getCardItem = (data) => {
-//   const card = new Card(data, '.item__template');
-//   const cardElement = card.createCard();
 
-//   cardsContainer.prepend(cardElement);
-// }
+//функция добавления новой карточки//
+function createNewCard() {
+  const newCard = new Card({
+    'name': photoInputName.value,
+    'link': photoInputLink.value
+  }, '.item__template');
 
-// function render() {
-//   cardItems.forEach((data) => {
-//     getCardItem(data);
-//   });
-// }
+  const newCardElement = newCard.createCard();
+  const cardRenderer = new Section({ data: []}, cardsContainer);
+  cardRenderer.addItem(newCardElement);
+};
 
 
-// //функция добавления новой карточки//
-// function createNewCard() {
-//   const newCard = getCardItem({
-//     'name': photoInputName.value,
-//     'link': photoInputLink.value
-//   }, '.item__template');
-// };
+
+
 
 
 //вызов функций попапа//
