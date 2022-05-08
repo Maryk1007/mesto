@@ -55,16 +55,25 @@ formAddPhotoValidation.enableValidation();
 //обработчики открытия попапов//
 
 // const popupWithProfile = new Popup (popupProfile);
+// buttonChange.addEventListener('click', () => {
+//   formProfileValidation.resetErrors();
+//   nameInputProfile.value = profileName.textContent;
+//   jobInputProfile.value = profileSelfDescription.textContent;
+//   openPopup(popupProfile);
+// });
+
+const popupWithProfile = new Popup(popupProfile);
 buttonChange.addEventListener('click', () => {
   formProfileValidation.resetErrors();
   nameInputProfile.value = profileName.textContent;
   jobInputProfile.value = profileSelfDescription.textContent;
-  openPopup(popupProfile);
+  popupWithProfile.open(popupProfile);
 });
 
+const popupWithPhoto = new Popup(popupPhoto)
 buttonAddPhoto.addEventListener('click', () => {
   formAddPhotoValidation.resetErrors();
-  openPopup(popupPhoto);
+  popupWithPhoto.open(popupPhoto);
 });
 
 
@@ -75,7 +84,7 @@ function editProfile(evt) {
   profileName.textContent = nameInputProfile.value;
   profileSelfDescription.textContent = jobInputProfile.value;
 
-  closePopup(popupProfile);
+  popupWithProfile.close(popupProfile);
 };
 
 formPopupProfile.addEventListener('submit', editProfile);
