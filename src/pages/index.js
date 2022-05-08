@@ -1,15 +1,16 @@
 import Section from '../js/components/Section.js';
+import Popup from '../js/components/Popup.js'
 import { FormValidator } from '../js/components/FormValidator.js';
 import { Card } from '../js/components/Card.js';
 import { openPopup, closePopup, closePopupOverlay, closePopupEsc} from '../js/utils.js'
-import { cardItems, popupFullview, fullviewPicture, captionPicture, cardsContainer } from '../js/constants.js';
+import { cardItems, popupFullview, popupPhoto, popupProfile, fullviewPicture, captionPicture, cardsContainer } from '../js/constants.js';
 
 import css from '../pages/index.css';
 
 
 //переменные для PopupProfile//
 const buttonChange = document.querySelector('.profile__button-change');
-const popupProfile = document.querySelector('.popup_profile');
+
 const buttonClosePopupProfile = popupProfile.querySelector('.button-close');
 const formPopupProfile = popupProfile.querySelector('.popup__form');
 const nameInputProfile = popupProfile.querySelector('.form__input_field_name');
@@ -21,7 +22,7 @@ const buttonSavepopupProfile = popupProfile.querySelector('.button-save');
 
 //переменные для popupPhoto//
 const buttonAddPhoto = document.querySelector('.profile__button-addphoto');
-const popupPhoto = document.querySelector('.popup_photo');
+
 const buttonClosePopupPhoto = popupPhoto.querySelector('.button-close');
 const buttonCreate = popupPhoto.querySelector('.button-save');
 const photoInputName = popupPhoto.querySelector('.form__input_field_title');
@@ -52,6 +53,8 @@ formAddPhotoValidation.enableValidation();
 
 
 //обработчики открытия попапов//
+
+// const popupWithProfile = new Popup (popupProfile);
 buttonChange.addEventListener('click', () => {
   formProfileValidation.resetErrors();
   nameInputProfile.value = profileName.textContent;

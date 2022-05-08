@@ -1,4 +1,3 @@
-// import { cardsContainer } from '../constants.js'
 import { Card } from './Card.js'
 
 export default class Section {

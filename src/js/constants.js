@@ -30,3 +30,6 @@ export const popupFullview = document.querySelector('.popup_fullview');
 export const fullviewPicture = popupFullview.querySelector('.popupfullview__picture');
 export const captionPicture = popupFullview.querySelector('.popupfullview__caption');
 
+export const popupPhoto = document.querySelector('.popup_photo');
+export const popupProfile = document.querySelector('.popup_profile');
+

@@ -3,12 +3,12 @@ import { fullviewPicture, captionPicture, popupFullview } from '../constants.js'
 
 export class Card {
 
-  constructor (data, templateSelector) {
+  constructor ({name, link}, templateSelector) {
     this._template = document.querySelector(templateSelector)
           .content.querySelector('.cards');
 
-    this._name = data.name
-    this._link = data.link
+    this._name = name
+    this._link = link
   }
   _deleteCard = () => {
     this._cardElement.remove();
