@@ -53,27 +53,17 @@ formAddPhotoValidation.enableValidation();
 
 
 //обработчики открытия попапов//
-
-// const popupWithProfile = new Popup (popupProfile);
-// buttonChange.addEventListener('click', () => {
-//   formProfileValidation.resetErrors();
-//   nameInputProfile.value = profileName.textContent;
-//   jobInputProfile.value = profileSelfDescription.textContent;
-//   openPopup(popupProfile);
-// });
-
-const popupWithProfile = new Popup(popupProfile);
 buttonChange.addEventListener('click', () => {
   formProfileValidation.resetErrors();
   nameInputProfile.value = profileName.textContent;
   jobInputProfile.value = profileSelfDescription.textContent;
-  popupWithProfile.open(popupProfile);
+  openPopup(popupProfile);
 });
 
-const popupWithPhoto = new Popup(popupPhoto)
+
 buttonAddPhoto.addEventListener('click', () => {
   formAddPhotoValidation.resetErrors();
-  popupWithPhoto.open(popupPhoto);
+  openPopup(popupPhoto);
 });
 
 
@@ -116,10 +106,6 @@ function createNewCard() {
   const cardRenderer = new Section({ data: []}, cardsContainer);
   cardRenderer.addItem(newCardElement);
 };
-
-
-
-
 
 
 //вызов функций попапа//
