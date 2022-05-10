@@ -1,5 +1,4 @@
 export default class Card {
-
   constructor (data, handleCardClick, templateSelector) {
     this._template = document.querySelector(templateSelector)
           .content.querySelector('.cards');
@@ -15,14 +14,6 @@ export default class Card {
   _likeCard(evt) {
     evt.target.closest('.cards__button').classList.toggle('cards__button_like');
   }
-
-  // _openFullviewCard(evt) {
-  //   fullviewPicture.src = evt.target.src;
-  //   fullviewPicture.alt = evt.target.alt;
-  //   captionPicture.textContent = evt.target.alt;
-
-  //   openPopup(popupFullview);
-  // }
 
   createCard() {
     this._cardElement = this._template.cloneNode(true);

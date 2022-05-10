@@ -4,28 +4,18 @@ import Section from '../js/components/Section.js';
 import PopupWithImage from '../js/components/PopupWithImage.js';
 import PopupWithForm from '../js/components/PopupWithForm.js';
 import UserInfo from '../js/components/UserInfo.js';
-import { cardItems, cardsContainer, buttonChange, buttonAddPhoto, formPopupPhoto, formPopupProfile, nameInputProfile, jobInputProfile } from '../js/constants.js';
+import { validationElements, cardItems, cardsContainer, buttonChange, buttonAddPhoto, formPopupPhoto, formPopupProfile, nameInputProfile, jobInputProfile } from '../js/constants.js';
 
 import css from '../pages/index.css';
 
 
-const validationElements = {
-  formSelector: '.popup__form',
-  inputSelector: '.form__input',
-  submitButtonSelector: '.button-save',
-  inactiveButtonClass: 'button-save:disabled',
-  inputErrorClass: 'form__input_error',
-  errorClass: 'form__field-error_visible'
-};
-
-
+//экземпляр класса PopupWithImage//
 const popupWithImage = new PopupWithImage('.popup_fullview');
 popupWithImage.setEventListeners();
 
 function handleCardClick(name, link) {
   popupWithImage.open(name, link);
 }
-
 
 
 //экземпляры класса FormValidator//
@@ -35,11 +25,12 @@ const formAddPhotoValidation = new FormValidator (validationElements, formPopupP
 formProfileValidation.enableValidation();
 formAddPhotoValidation.enableValidation();
 
+
+//экземпляр класса UserInfo//
 const newUserInfo = new UserInfo({userNameSelecror: '.profile__name', userJobSelector: '.profile__self-description'});
 
 
-//получение карточки//
-
+//получение карточек//
 const cardList = new Section({
   data: cardItems,
   renderer: (cardItem) => {
@@ -53,6 +44,7 @@ const cardList = new Section({
 cardList.renderItems();
 
 
+//попап с новыми фото//
 const popupAddPhoto = new PopupWithForm({
   popupSelector:'.popup_photo',
   handleFormSubmit: (data) => {
@@ -65,6 +57,7 @@ const popupAddPhoto = new PopupWithForm({
 popupAddPhoto.setEventListeners();
 
 
+//попап с данными профиля//
 const popupWithProfile = new PopupWithForm({
   popupSelector: '.popup_profile',
   handleFormSubmit: ( data ) => {
@@ -74,6 +67,8 @@ const popupWithProfile = new PopupWithForm({
 
 popupWithProfile.setEventListeners();
 
+
+//открытие попапа с данными профиля//
 buttonChange.addEventListener('click', () => {
   formProfileValidation.resetErrors();
   const userInfo = newUserInfo.getUserInfo();
@@ -82,6 +77,8 @@ buttonChange.addEventListener('click', () => {
   popupWithProfile.open();
 });
 
+
+//открытие попапа для добавления новых фото//
 buttonAddPhoto.addEventListener('click', () => {
   formAddPhotoValidation.resetErrors();
   popupAddPhoto.open();

@@ -1,3 +1,12 @@
+export const validationElements = {
+  formSelector: '.popup__form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.button-save',
+  inactiveButtonClass: 'button-save:disabled',
+  inputErrorClass: 'form__input_error',
+  errorClass: 'form__field-error_visible'
+};
+
 export const cardItems = [
   {
     'photoName': 'Гора Казбек',
@@ -26,9 +35,6 @@ export const cardItems = [
 ];
 
 export const cardsContainer = '.images__list';
-// export const popupFullview = document.querySelector('.popup_fullview');
-// export const fullviewPicture = popupFullview.querySelector('.popupfullview__picture');
-// export const captionPicture = popupFullview.querySelector('.popupfullview__caption');
 export const buttonChange = document.querySelector('.profile__button-change');
 export const buttonAddPhoto = document.querySelector('.profile__button-addphoto');
 
