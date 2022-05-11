@@ -31,13 +31,17 @@ const newUserInfo = new UserInfo({userNameSelecror: '.profile__name', userJobSel
 
 
 //получение карточек//
+
+function createCard(cardItem) {
+  const card = new Card(cardItem, handleCardClick, '.item__template');
+  const cardElement = card.createCard();
+  cardList.addItem(cardElement);
+};
+
 const cardList = new Section({
   data: cardItems,
   renderer: (cardItem) => {
-    const card = new Card(cardItem, handleCardClick, '.item__template');
-      const cardElement = card.createCard();
-
-      cardList.addItem(cardElement);
+    createCard(cardItem);
   }
 }, cardsContainer);
 
@@ -47,10 +51,8 @@ cardList.renderItems();
 //попап с новыми фото//
 const popupAddPhoto = new PopupWithForm({
   popupSelector:'.popup_photo',
-  handleFormSubmit: (data) => {
-    const newCard = new Card(data, handleCardClick, '.item__template');
-    const cardElement = newCard.createCard();
-    cardList.addItem(cardElement);
+  handleFormSubmit: (cardItem) => {
+    createCard(cardItem);
   }
 });
 
@@ -70,10 +72,10 @@ popupWithProfile.setEventListeners();
 
 //открытие попапа с данными профиля//
 buttonChange.addEventListener('click', () => {
-  formProfileValidation.resetErrors();
   const userInfo = newUserInfo.getUserInfo();
   nameInputProfile.value = userInfo.user;
   jobInputProfile.value = userInfo.info;
+  formProfileValidation.resetErrors();
   popupWithProfile.open();
 });
 

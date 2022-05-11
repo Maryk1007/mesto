@@ -17,11 +17,10 @@ export default class Card {
 
   createCard() {
     this._cardElement = this._template.cloneNode(true);
-    const pictureElement = this._cardElement.querySelector('.cards__picture');
+    this._pictureElement = this._cardElement.querySelector('.cards__picture');
     this._cardElement.querySelector('.cards__title').textContent = this._name;
-    pictureElement.src = this._link;
-    pictureElement.alt = this._name;
-    console.log(pictureElement.src);
+    this._pictureElement.src = this._link;
+    this._pictureElement.alt = this._name;
 
     this._addLiseners(this._cardElement);
     return this._cardElement;
@@ -30,6 +29,6 @@ export default class Card {
   _addLiseners(el) {
     el.querySelector('.cards__delete-button').addEventListener('click', this._deleteCard);
     el.querySelector('.cards__button').addEventListener('click', this._likeCard);
-    el.querySelector('.cards__picture').addEventListener('click', () => this._handleCardClick(this._name, this._link));
+    this._pictureElement.addEventListener('click', () => this._handleCardClick(this._name, this._link));
   }
 }
