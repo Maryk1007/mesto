@@ -34,7 +34,6 @@ const newUserInfo = new UserInfo({userNameSelecror: '.profile__name', userJobSel
 
 function createCard(cardItem) {
   const card = new Card(cardItem, handleCardClick, '.item__template');
-  const cardElement = card.createCard();
   return card.createCard();
 };
 
