@@ -35,13 +35,13 @@ const newUserInfo = new UserInfo({userNameSelecror: '.profile__name', userJobSel
 function createCard(cardItem) {
   const card = new Card(cardItem, handleCardClick, '.item__template');
   const cardElement = card.createCard();
-  cardList.addItem(cardElement);
+  return card.createCard();
 };
 
 const cardList = new Section({
   data: cardItems,
   renderer: (cardItem) => {
-    createCard(cardItem);
+    cardList.addItem(createCard(cardItem));
   }
 }, cardsContainer);
 
@@ -52,7 +52,7 @@ cardList.renderItems();
 const popupAddPhoto = new PopupWithForm({
   popupSelector:'.popup_photo',
   handleFormSubmit: (cardItem) => {
-    createCard(cardItem);
+    cardList.addItem(createCard(cardItem));
   }
 });
 
