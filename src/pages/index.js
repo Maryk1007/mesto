@@ -4,10 +4,44 @@ import Section from '../js/components/Section.js';
 import PopupWithImage from '../js/components/PopupWithImage.js';
 import PopupWithForm from '../js/components/PopupWithForm.js';
 import UserInfo from '../js/components/UserInfo.js';
-import { validationElements, cardItems, cardsContainer, buttonChange, buttonAddPhoto, formPopupPhoto, formPopupProfile, nameInputProfile, jobInputProfile } from '../js/constants.js';
+import Api from '../js/components/Api.js';
+import { validationElements,
+        cardItems,
+        cardsContainer,
+        buttonChange,
+        buttonAddPhoto,
+        formPopupPhoto,
+        formPopupProfile,
+        nameInputProfile,
+        jobInputProfile,
+        url,
+        token
+      } from '../js/constants.js';
 
 import css from '../pages/index.css';
 
+const api = new Api({
+  baseUrl: url,
+  headers: {
+    authorization: token,
+    'Content-Type': 'application/json'
+  }
+});
+
+api.getProfile()
+  .then(res => {
+    newUserInfo.setUserInfo({userName: res.name, userJob: res.about});
+});
+
+api.getCardItems()
+  .then(cardsList => {
+    cardsList.forEach((cardElement) => {
+      createCard(cardElement);
+
+      cardList.addItem(createCard(cardElement))
+    })
+
+  })
 
 //экземпляр класса PopupWithImage//
 const popupWithImage = new PopupWithImage('.popup_fullview');

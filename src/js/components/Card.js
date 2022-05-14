@@ -2,8 +2,8 @@ export default class Card {
   constructor (data, handleCardClick, templateSelector) {
     this._template = document.querySelector(templateSelector)
           .content.querySelector('.cards');
-    this._name = data.photoName;
-    this._link = data.photoLink;
+    this._name = data.name;
+    this._link = data.link;
     this._handleCardClick = handleCardClick;
   }
   _deleteCard = () => {
