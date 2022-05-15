@@ -39,7 +39,7 @@ export default class Api {
       headers: this._headers,
       body: JSON.stringify({
         name,
-        link
+        link,
       })
 
     })

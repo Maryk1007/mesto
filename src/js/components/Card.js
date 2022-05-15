@@ -18,7 +18,7 @@ export default class Card {
 
   _setLikes() {
     this._likesCountElement = this._cardElement.querySelector('.cards__count-likes');
-    this._likesCountElement.textContent = 8;
+    this._likesCountElement.textContent = this._likes.length;
   }
 
   createCard() {

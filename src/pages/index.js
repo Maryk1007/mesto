@@ -6,7 +6,6 @@ import PopupWithForm from '../js/components/PopupWithForm.js';
 import UserInfo from '../js/components/UserInfo.js';
 import Api from '../js/components/Api.js';
 import { validationElements,
-        cardItems,
         cardsContainer,
         buttonChange,
         buttonAddPhoto,
@@ -37,6 +36,7 @@ api.getProfile()
 api.getCardItems()
   .then(cardsList => {
     cardsList.forEach((cardElement) => {
+      console.log(cardElement);
       createCard(cardElement);
 
       cardList.addItem(createCard(cardElement))
@@ -73,7 +73,7 @@ function createCard(cardItem) {
 };
 
 const cardList = new Section({
-  data: cardItems,
+  data: [],
   renderer: (cardItem) => {
     cardList.addItem(createCard(cardItem));
   }
