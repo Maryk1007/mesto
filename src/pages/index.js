@@ -97,7 +97,10 @@ popupAddPhoto.setEventListeners();
 const popupWithProfile = new PopupWithForm({
   popupSelector: '.popup_profile',
   handleFormSubmit: ( data ) => {
-    newUserInfo.setUserInfo( data );
+    api.editProfile(data.name, data.about)
+      .then(res => {
+        newUserInfo.setUserInfo( data );
+      })
   }
 });
 
