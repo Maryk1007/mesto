@@ -46,6 +46,7 @@ export const token = '727072e6-c5f4-4d87-823d-11ff5d188e34';
 export const cardsContainer = '.images__list';
 export const buttonChange = document.querySelector('.profile__button-change');
 export const buttonAddPhoto = document.querySelector('.profile__button-addphoto');
+export const buttonEditProfile = document.querySelector('.profile__edit-avatar');
 
 
 const popupPhoto = document.querySelector('.popup_photo');

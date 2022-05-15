@@ -1,6 +1,7 @@
 import FormValidator from '../js/components/FormValidator.js';
 import Card from '../js/components/Card.js';
 import Section from '../js/components/Section.js';
+import PopupWithSubmit from '../js/components/PopupWithSubmit'
 import PopupWithImage from '../js/components/PopupWithImage.js';
 import PopupWithForm from '../js/components/PopupWithForm.js';
 import UserInfo from '../js/components/UserInfo.js';
@@ -14,7 +15,10 @@ import { validationElements,
         nameInputProfile,
         jobInputProfile,
         url,
-        token
+        token,
+        buttonEditProfile,
+        formPopupEditAvatar,
+        formDeletePhoto
       } from '../js/constants.js';
 
 import css from '../pages/index.css';
@@ -52,6 +56,10 @@ function handleCardClick(name, link) {
   popupWithImage.open(name, link);
 }
 
+function handleDeleteClick() {
+  popupConfirmDelete.open();
+}
+
 
 //экземпляры класса FormValidator//
 const formProfileValidation = new FormValidator (validationElements, formPopupProfile)
@@ -68,7 +76,7 @@ const newUserInfo = new UserInfo({userNameSelecror: '.profile__name', userJobSel
 //получение карточек//
 
 function createCard(cardItem) {
-  const card = new Card(cardItem, handleCardClick, '.item__template');
+  const card = new Card(cardItem, handleCardClick, handleDeleteClick, '.item__template');
   return card.createCard();
 };
 
@@ -80,6 +88,10 @@ const cardList = new Section({
 }, cardsContainer);
 
 cardList.renderItems();
+
+const popupConfirmDelete = new PopupWithSubmit('.popup_confirm-delete');
+popupConfirmDelete.setEventListeners();
+
 
 
 //попап с новыми фото//
@@ -108,6 +120,12 @@ const popupWithProfile = new PopupWithForm({
 popupWithProfile.setEventListeners();
 
 
+// const popupEditAvatar = new PopupWithForm({
+//   popupSelector: '.popup_confirm-delete',
+//   handleFormSubmit:
+// });
+
+
 //открытие попапа с данными профиля//
 buttonChange.addEventListener('click', () => {
   const userInfo = newUserInfo.getUserInfo();
@@ -123,3 +141,5 @@ buttonAddPhoto.addEventListener('click', () => {
   formAddPhotoValidation.resetErrors();
   popupAddPhoto.open();
 });
+
+
