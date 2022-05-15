@@ -86,7 +86,8 @@ cardList.renderItems();
 const popupAddPhoto = new PopupWithForm({
   popupSelector:'.popup_photo',
   handleFormSubmit: (cardItem) => {
-    cardList.addItem(createCard(cardItem));
+    api.addCards(cardItem.name, cardItem.link)
+      .then(res => {cardList.addItem(createCard(cardItem))})
   }
 });
 

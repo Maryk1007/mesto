@@ -33,6 +33,20 @@ export default class Api {
     .catch(console.log)
   }
 
+  addCards(name, link) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: 'POST',
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        link
+      })
+
+    })
+    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
+    .catch(console.log)
+  }
+
   // другие методы работы с API
 }
 
