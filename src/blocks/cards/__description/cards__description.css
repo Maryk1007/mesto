@@ -1,4 +1,5 @@
 .cards__description {
+  position: relative;
   display: flex;
   justify-content: space-between;
   margin: 0;
