@@ -30,7 +30,8 @@ const api = new Api({
 
 api.getProfile()
   .then(res => {
-    newUserInfo.setUserInfo({userName: res.name, userJob: res.about});
+    newUserInfo.setUserInfo(res);
+    console.log(res);
 });
 
 api.getCardItems()
@@ -106,8 +107,8 @@ popupWithProfile.setEventListeners();
 //открытие попапа с данными профиля//
 buttonChange.addEventListener('click', () => {
   const userInfo = newUserInfo.getUserInfo();
-  nameInputProfile.value = userInfo.user;
-  jobInputProfile.value = userInfo.info;
+  nameInputProfile.value = userInfo.name;
+  jobInputProfile.value = userInfo.about;
   formProfileValidation.resetErrors();
   popupWithProfile.open();
 });
