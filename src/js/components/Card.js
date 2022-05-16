@@ -29,6 +29,10 @@ export default class Card {
     this._pictureElement.src = this._link;
     this._pictureElement.alt = this._name;
 
+    if(!this._likes) {
+      this._likes = []
+    }
+
     this._setLikes();
     this._addLiseners(this._cardElement);
     return this._cardElement;
