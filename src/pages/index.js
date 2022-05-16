@@ -40,7 +40,7 @@ api.getProfile()
 api.getCardItems()
   .then(cardsList => {
     cardsList.forEach((cardElement) => {
-      console.log(cardElement);
+      // console.log(cardElement);
       createCard(cardElement);
 
       cardList.addItem(createCard(cardElement))
@@ -56,7 +56,21 @@ function handleCardClick(name, link) {
   popupWithImage.open(name, link);
 }
 
-function handleDeleteClick() {
+
+const popupConfirmDelete = new PopupWithSubmit('.popup_confirm-delete');
+popupConfirmDelete.setEventListeners();
+
+function handleDeleteClick(card) {
+  popupConfirmDelete.changeSubmitHandler(() => {
+    api.deleteCard(card._id)
+      .then(res => {
+        card.deleteCard();
+        popupConfirmDelete.close();
+      })
+      .catch((err) => {
+        console.log(`${err}`);
+    });
+  })
   popupConfirmDelete.open();
 }
 
@@ -76,7 +90,11 @@ const newUserInfo = new UserInfo({userNameSelecror: '.profile__name', userJobSel
 //получение карточек//
 
 function createCard(cardItem) {
-  const card = new Card(cardItem, handleCardClick, handleDeleteClick, '.item__template');
+  const card = new Card(cardItem,
+    handleCardClick, {
+      handleLikeClick: () => {},
+      handleDeleteClick: () => {handleDeleteClick(card)}
+    }, '.item__template');
   return card.createCard();
 };
 
@@ -88,10 +106,6 @@ const cardList = new Section({
 }, cardsContainer);
 
 cardList.renderItems();
-
-const popupConfirmDelete = new PopupWithSubmit('.popup_confirm-delete');
-popupConfirmDelete.setEventListeners();
-
 
 
 //попап с новыми фото//
