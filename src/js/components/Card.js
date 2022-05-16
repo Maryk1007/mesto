@@ -1,18 +1,29 @@
 export default class Card {
-  constructor (data, handleCardClick, {handleLikeClick, handleDeleteClick}, templateSelector) {
+  constructor ({ name, link, likes, _id, owner }, handleCardClick, {handleLikeClick, handleDeleteClick}, currentUserId, templateSelector) {
     this._template = document.querySelector(templateSelector)
           .content.querySelector('.cards');
-    this._name = data.name;
-    this._link = data.link;
-    this._likes = data.likes;
-    this._id = data._id;
+    this._name = name;
+    this._link = link;
+    this._likes = likes;
+    this._id = _id;
     this._handleCardClick = handleCardClick;
     this._handleDeleteClick = handleDeleteClick;
+
+    this._userId = currentUserId;
+    this._ownerId = owner;
   }
 
   deleteCard = () => {
     this._cardElement.remove();
     this._cardElement = null;
+  }
+
+  _getViewDeleteButton() {
+    this._deleteButton = this._cardElement.querySelector('.cards__delete-button');
+
+    if (this._ownerId._id !== this._userId) {
+      this._deleteButton.classList.remove('cards__delete-button_show');
+    }
   }
 
   _likeCard(evt) {
@@ -31,11 +42,19 @@ export default class Card {
     this._pictureElement.src = this._link;
     this._pictureElement.alt = this._name;
 
-    if(!this._likes) {
-      this._likes = []
+    if (!this._likes) {
+      this._likes = [];
+      console.log(this._likes);
+    }
+
+    if (!this._ownerId) {
+      this._ownerId = {
+        _id: this._userId
+      }
     }
 
     this._setLikes();
+    this._getViewDeleteButton();
     this._addLiseners(this._cardElement);
     return this._cardElement;
   }

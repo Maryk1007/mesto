@@ -31,10 +31,12 @@ const api = new Api({
   }
 });
 
+let userId;
+
 api.getProfile()
   .then(res => {
     newUserInfo.setUserInfo(res);
-    console.log(res);
+    userId = res._id;
 });
 
 api.getCardItems()
@@ -55,7 +57,6 @@ popupWithImage.setEventListeners();
 function handleCardClick(name, link) {
   popupWithImage.open(name, link);
 }
-
 
 const popupConfirmDelete = new PopupWithSubmit('.popup_confirm-delete');
 popupConfirmDelete.setEventListeners();
@@ -88,13 +89,14 @@ const newUserInfo = new UserInfo({userNameSelecror: '.profile__name', userJobSel
 
 
 //получение карточек//
-
 function createCard(cardItem) {
   const card = new Card(cardItem,
     handleCardClick, {
       handleLikeClick: () => {},
       handleDeleteClick: () => {handleDeleteClick(card)}
-    }, '.item__template');
+    },
+    userId,
+     '.item__template');
   return card.createCard();
 };
 
@@ -132,12 +134,6 @@ const popupWithProfile = new PopupWithForm({
 });
 
 popupWithProfile.setEventListeners();
-
-
-// const popupEditAvatar = new PopupWithForm({
-//   popupSelector: '.popup_confirm-delete',
-//   handleFormSubmit:
-// });
 
 
 //открытие попапа с данными профиля//
