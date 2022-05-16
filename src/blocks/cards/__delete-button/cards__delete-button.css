@@ -1,4 +1,5 @@
 .cards__delete-button {
+  display: none;
   position: absolute;
   margin: 0;
   padding: 0;
