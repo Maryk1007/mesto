@@ -30,5 +30,3 @@ export const formPopupEditAvatar = popupEditAvatar.querySelector('.popup__form')
 
 const popupConfirmDeletePhoto = document.querySelector('.popup_confirm-delete');
 export const formDeletePhoto = popupConfirmDeletePhoto.querySelector('.popup__form');
-
-

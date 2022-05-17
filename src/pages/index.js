@@ -17,8 +17,7 @@ import { validationElements,
         url,
         token,
         buttonEditProfile,
-        formPopupEditAvatar,
-        formDeletePhoto
+        formPopupEditAvatar
       } from '../js/constants.js';
 
 import css from '../pages/index.css';
@@ -50,12 +49,27 @@ api.getCardItems()
 
   })
 
-//экземпляр класса PopupWithImage//
+//функции слушателей//
 const popupWithImage = new PopupWithImage('.popup_fullview');
 popupWithImage.setEventListeners();
 
 function handleCardClick(name, link) {
   popupWithImage.open(name, link);
+}
+
+
+function handleLikeClick(card) {
+  if(card.isLiked()) {
+    api.deleteLike(card._id)
+      .then(res => {
+        card.setLikes(res.likes);
+      })
+  } else {
+    api.addLike(card._id)
+    .then(res => {
+      card.setLikes(res.likes);
+    })
+  }
 }
 
 const popupConfirmDelete = new PopupWithSubmit('.popup_confirm-delete');
@@ -92,7 +106,7 @@ const newUserInfo = new UserInfo({userNameSelecror: '.profile__name', userJobSel
 function createCard(cardItem) {
   const card = new Card(cardItem,
     handleCardClick, {
-      handleLikeClick: () => {},
+      handleLikeClick: () => {handleLikeClick(card)},
       handleDeleteClick: () => {handleDeleteClick(card)}
     },
     userId,
@@ -151,5 +165,3 @@ buttonAddPhoto.addEventListener('click', () => {
   formAddPhotoValidation.resetErrors();
   popupAddPhoto.open();
 });
-
-

@@ -56,6 +56,21 @@ export default class Api {
     .catch(console.log)
   }
 
-  // другие методы работы с API
-}
+  addLike(id) {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+      method: 'PUT',
+      headers: this._headers
+    })
+    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
+    .catch(console.log)
+  }
 
+  deleteLike(id) {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+      method: 'DELETE',
+      headers: this._headers
+    })
+    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
+    .catch(console.log)
+  }
+}
