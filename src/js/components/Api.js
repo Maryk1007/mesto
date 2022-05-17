@@ -73,4 +73,16 @@ export default class Api {
     .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
     .catch(console.log)
   }
+
+  editAvatar(avatar) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar
+      })
+    })
+    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
+    .catch(console.log)
+  }
 }

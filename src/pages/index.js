@@ -17,10 +17,23 @@ import { validationElements,
         url,
         token,
         buttonEditProfile,
-        formPopupEditAvatar
+        formPopupAvatar,
+        avatar,
+        allButtonsSubmit
       } from '../js/constants.js';
 
 import css from '../pages/index.css';
+
+
+function renderLoading(isLoading) {
+  if(isLoading) {
+    Array.from(allButtonsSubmit).forEach((submit) => {
+      submit.textContent = 'Сохранение...';
+    })
+  } else {
+    submit.textContent = 'Сохранить';
+  }
+}
 
 const api = new Api({
   baseUrl: url,
@@ -41,7 +54,6 @@ api.getProfile()
 api.getCardItems()
   .then(cardsList => {
     cardsList.forEach((cardElement) => {
-      // console.log(cardElement);
       createCard(cardElement);
 
       cardList.addItem(createCard(cardElement))
@@ -93,13 +105,19 @@ function handleDeleteClick(card) {
 //экземпляры класса FormValidator//
 const formProfileValidation = new FormValidator (validationElements, formPopupProfile)
 const formAddPhotoValidation = new FormValidator (validationElements, formPopupPhoto)
+const formAvatarValidation = new FormValidator (validationElements, formPopupAvatar)
 
 formProfileValidation.enableValidation();
 formAddPhotoValidation.enableValidation();
+formAvatarValidation.enableValidation();
 
 
 //экземпляр класса UserInfo//
-const newUserInfo = new UserInfo({userNameSelecror: '.profile__name', userJobSelector: '.profile__self-description'});
+const newUserInfo = new UserInfo({
+  userNameSelecror: '.profile__name',
+  userJobSelector: '.profile__self-description',
+  userAvatarSelector: '.profile__picture'
+});
 
 
 //получение карточек//
@@ -128,6 +146,7 @@ cardList.renderItems();
 const popupAddPhoto = new PopupWithForm({
   popupSelector:'.popup_photo',
   handleFormSubmit: (cardItem) => {
+    renderLoading(true);
     api.addCards(cardItem.name, cardItem.link)
       .then(res => {cardList.addItem(createCard(cardItem))})
   }
@@ -140,6 +159,7 @@ popupAddPhoto.setEventListeners();
 const popupWithProfile = new PopupWithForm({
   popupSelector: '.popup_profile',
   handleFormSubmit: ( data ) => {
+    renderLoading(true);
     api.editProfile(data.name, data.about)
       .then(res => {
         newUserInfo.setUserInfo( data );
@@ -148,6 +168,19 @@ const popupWithProfile = new PopupWithForm({
 });
 
 popupWithProfile.setEventListeners();
+
+const popupAvatar = new PopupWithForm ({
+  popupSelector: '.popup_edit-avatar',
+  handleFormSubmit: ( data ) => {
+    renderLoading(true);
+    api.editAvatar(data.avatar)
+      .then(res => {
+        avatar.src = `${res.avatar}`
+      })
+  }
+})
+
+popupAvatar.setEventListeners();
 
 
 //открытие попапа с данными профиля//
@@ -165,3 +198,9 @@ buttonAddPhoto.addEventListener('click', () => {
   formAddPhotoValidation.resetErrors();
   popupAddPhoto.open();
 });
+
+
+buttonEditProfile.addEventListener('click', () => {
+  formAvatarValidation.resetErrors();
+  popupAvatar.open();
+})
