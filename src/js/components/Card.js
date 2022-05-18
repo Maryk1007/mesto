@@ -53,17 +53,6 @@ export default class Card {
     this._pictureElement.src = this._link;
     this._pictureElement.alt = this._name;
 
-    if (!this._likes) {
-      this._likes = [];
-      console.log(this._likes);
-    }
-
-    if (!this._ownerId) {
-      this._ownerId = {
-        _id: this._userId
-      }
-    }
-
     this.setLikes(this._likes);
     this._getViewDeleteButton();
     this._addLiseners();

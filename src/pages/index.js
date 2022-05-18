@@ -100,8 +100,7 @@ const popupConfirmDelete = new PopupWithSubmit('.popup_confirm-delete');
 popupConfirmDelete.setEventListeners();
 
 function handleDeleteClick(card) {
-  popupConfirmDelete.changeSubmitHandler(() => {
-    api.deleteCard(card._id)
+  api.deleteCard(card._id)
       .then(res => {
         card.deleteCard();
         popupConfirmDelete.close();
@@ -112,7 +111,6 @@ function handleDeleteClick(card) {
       .finally(() => {
         buttonDeletePhoto.textContent = 'Да'
       })
-  })
   popupConfirmDelete.open();
 }
 
