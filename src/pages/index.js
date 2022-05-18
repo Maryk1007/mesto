@@ -19,7 +19,10 @@ import { validationElements,
         buttonEditProfile,
         formPopupAvatar,
         avatar,
-        allButtonsSubmit
+        allButtonsSubmit,
+        buttonSavePhoto,
+        buttonSaveProfile,
+        buttonSaveAvatar
       } from '../js/constants.js';
 
 import css from '../pages/index.css';
@@ -49,17 +52,23 @@ api.getProfile()
   .then(res => {
     newUserInfo.setUserInfo(res);
     userId = res._id;
-});
+  })
+  .catch((err) => {
+    console.log(`${err}`)
+  })
+
 
 api.getCardItems()
   .then(cardsList => {
     cardsList.forEach((cardElement) => {
       createCard(cardElement);
-
       cardList.addItem(createCard(cardElement))
     })
-
   })
+  .catch((err) => {
+    console.log(`${err}`)
+  })
+
 
 //функции слушателей//
 const popupWithImage = new PopupWithImage('.popup_fullview');
@@ -76,10 +85,16 @@ function handleLikeClick(card) {
       .then(res => {
         card.setLikes(res.likes);
       })
+      .catch((err) => {
+        console.log(`${err}`)
+      })
   } else {
     api.addLike(card._id)
     .then(res => {
       card.setLikes(res.likes);
+    })
+    .catch((err) => {
+      console.log(`${err}`)
     })
   }
 }
@@ -146,11 +161,17 @@ cardList.renderItems();
 const popupAddPhoto = new PopupWithForm({
   popupSelector:'.popup_photo',
   handleFormSubmit: (cardItem) => {
-    renderLoading(true);
+    // renderLoading(true);
     api.addCards(cardItem.name, cardItem.link)
       .then(res => {
-        cardList.addItem(createCard(res))
+        cardList.addItem(createCard(res));
+        popupAddPhoto.close();
       })
+      .catch((err) => {
+        console.log(`${err}`)
+      })
+      .finally(() => {
+        buttonSavePhoto.textContent = 'Создать'})
   }
 });
 
@@ -165,7 +186,13 @@ const popupWithProfile = new PopupWithForm({
     api.editProfile(data.name, data.about)
       .then(res => {
         newUserInfo.setUserInfo( data );
+        popupWithProfile.close();
       })
+      .catch((err) => {
+        console.log(`${err}`)
+      })
+      .finally(() => {
+        buttonSaveProfile.textContent = 'Сохранить'})
   }
 });
 
@@ -178,7 +205,13 @@ const popupAvatar = new PopupWithForm ({
     api.editAvatar(data.avatar)
       .then(res => {
         avatar.src = `${res.avatar}`
+        popupAvatar.close()
       })
+      .catch((err) => {
+        console.log(`${err}`)
+      })
+      .finally(() => {
+        buttonSaveAvatar.textContent = 'Сохранить'})
   }
 })
 

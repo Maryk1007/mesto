@@ -32,25 +32,17 @@ export default class Card {
     return userHasLikedCard;
   }
 
-  _likeCard() {
-    this._buttonLike = this._cardElement.querySelector('.cards__button');
-    this._buttonLike.classList.add('cards__button_like');
-  }
-
-  _dislikeCard() {
-    this._buttonLike = this._cardElement.querySelector('.cards__button');
-    this._buttonLike.classList.remove('cards__button_like');
-  }
-
   setLikes(newLikes) {
     this._likes = newLikes;
     this._likesCountElement = this._cardElement.querySelector('.cards__count-likes');
     this._likesCountElement.textContent = this._likes.length;
 
+    this._buttonLike = this._cardElement.querySelector('.cards__button');
+
     if (this.isLiked()) {
-      this._likeCard();
+      this._buttonLike.classList.add('cards__button_like');
     } else {
-      this._dislikeCard();
+      this._buttonLike.classList.remove('cards__button_like');
     }
   }
 
@@ -74,13 +66,13 @@ export default class Card {
 
     this.setLikes(this._likes);
     this._getViewDeleteButton();
-    this._addLiseners(this._cardElement);
+    this._addLiseners();
     return this._cardElement;
   }
 
-  _addLiseners(el) {
+  _addLiseners() {
     this._deleteButton.addEventListener('click', () => this._handleDeleteClick(this._id));
-    el.querySelector('.cards__button').addEventListener('click', () => this._handleLikeClick(this._id));
+    this._buttonLike.addEventListener('click', () => this._handleLikeClick(this._id));
     this._pictureElement.addEventListener('click', () => this._handleCardClick(this._name, this._link));
   }
 }
