@@ -22,7 +22,8 @@ import { validationElements,
         allButtonsSubmit,
         buttonSavePhoto,
         buttonSaveProfile,
-        buttonSaveAvatar
+        buttonSaveAvatar,
+        buttonDeletePhoto
       } from '../js/constants.js';
 
 import css from '../pages/index.css';
@@ -48,26 +49,22 @@ const api = new Api({
 
 let userId;
 
-api.getProfile()
-  .then(res => {
-    newUserInfo.setUserInfo(res);
-    userId = res._id;
-  })
-  .catch((err) => {
-    console.log(`${err}`)
-  })
 
+Promise.all([api.getProfile(), api.getCardItems()])
+  .then(([data, cardsList]) => {
+    newUserInfo.setUserInfo(data);
+    newUserInfo.setUserAvatar(data);
+    userId = data._id;
 
-api.getCardItems()
-  .then(cardsList => {
     cardsList.forEach((cardElement) => {
       createCard(cardElement);
       cardList.addItem(createCard(cardElement))
     })
+
   })
-  .catch((err) => {
+  .catch(err => {
     console.log(`${err}`)
-  })
+  });
 
 
 //функции слушателей//
@@ -111,7 +108,10 @@ function handleDeleteClick(card) {
       })
       .catch((err) => {
         console.log(`${err}`);
-    });
+      })
+      .finally(() => {
+        buttonDeletePhoto.textContent = 'Да'
+      })
   })
   popupConfirmDelete.open();
 }
@@ -161,7 +161,7 @@ cardList.renderItems();
 const popupAddPhoto = new PopupWithForm({
   popupSelector:'.popup_photo',
   handleFormSubmit: (cardItem) => {
-    // renderLoading(true);
+    renderLoading(true);
     api.addCards(cardItem.name, cardItem.link)
       .then(res => {
         cardList.addItem(createCard(res));
@@ -204,7 +204,7 @@ const popupAvatar = new PopupWithForm ({
     renderLoading(true);
     api.editAvatar(data.avatar)
       .then(res => {
-        avatar.src = `${res.avatar}`
+        newUserInfo.setUserAvatar(data);
         popupAvatar.close()
       })
       .catch((err) => {

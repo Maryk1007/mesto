@@ -34,5 +34,6 @@ export const buttonSaveAvatar = popupAvatar.querySelector('.button-save');
 
 const popupConfirmDeletePhoto = document.querySelector('.popup_confirm-delete');
 export const formDeletePhoto = popupConfirmDeletePhoto.querySelector('.popup__form');
+export const buttonDeletePhoto = popupConfirmDeletePhoto.querySelector('.button-save');
 
 export const allButtonsSubmit = document.querySelectorAll('.button-save');
