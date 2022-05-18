@@ -96,23 +96,26 @@ function handleLikeClick(card) {
   }
 }
 
-const popupConfirmDelete = new PopupWithSubmit('.popup_confirm-delete');
-popupConfirmDelete.setEventListeners();
+const popupConfirmDelete = new PopupWithForm({popupSelector: '.popup_confirm-delete'});
 
 function handleDeleteClick(card) {
-  api.deleteCard(card._id)
-      .then(res => {
-        card.deleteCard();
-        popupConfirmDelete.close();
-      })
-      .catch((err) => {
-        console.log(`${err}`);
-      })
-      .finally(() => {
-        buttonDeletePhoto.textContent = 'Да'
-      })
-  popupConfirmDelete.open();
+  popupConfirmDelete.open()
+  popupConfirmDelete.changeFormSubmit((id) => {
+    api.deleteCard(card._id)
+    .then(res => {
+      card.deleteCard();
+      popupConfirmDelete.close();
+    })
+    .catch((err) => {
+      console.log(`${err}`);
+    })
+    .finally(() => {
+      buttonDeletePhoto.textContent = 'Да'
+    })
+  })
 }
+
+popupConfirmDelete.setEventListeners();
 
 
 //экземпляры класса FormValidator//
